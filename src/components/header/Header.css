@@ -1,0 +1,28 @@
+.navbar {
+  height: 15vh;
+  width: 100vw;
+  background: rgba(196, 196, 196, 0.2);
+  display: flex;
+  flex-flow: row, nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Reem Kufi', sans-serif;
+  font-weight: normal;
+  font-size: 12vh;
+  line-height: 135px;
+  color: #000;
+  margin-left: 1vw;
+}
+
+.navlink {
+  font-family: 'Reem Kufi', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 5vh;
+  line-height: 60px;
+  color: #fff;
+  margin-right: 8vw;
+}
