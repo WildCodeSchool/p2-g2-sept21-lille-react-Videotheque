@@ -16,6 +16,7 @@ export default function FicheFilm() {
   const [actor2, setActor2] = useState([]);
   const [actor3, setActor3] = useState([]);
 
+  // API with UseEffect
   useEffect(() => {
     axios
       .get(
