@@ -3,7 +3,6 @@ import axios from 'axios';
 import './FicheFilm.css';
 
 export default function FicheFilm() {
-  // Declare states
   const [title, setTitle] = useState([]);
   const [voteAverage, setVoteAverage] = useState([]);
   const [poster, setPoster] = useState([]);
@@ -16,7 +15,6 @@ export default function FicheFilm() {
   const [actor2, setActor2] = useState([]);
   const [actor3, setActor3] = useState([]);
 
-  // API with UseEffect
   useEffect(() => {
     axios
       .get(
@@ -74,7 +72,7 @@ export default function FicheFilm() {
         <p className="vote">Users vote : {voteAverage}</p>
       </div>
       <div className="posterTrailer">
-        <img src={urlPoster} alt="" />
+        <img src={urlPoster} alt="trailer" />
         <iframe
           title="trailer"
           width="820"
