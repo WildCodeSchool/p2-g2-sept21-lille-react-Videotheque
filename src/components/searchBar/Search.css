@@ -1,0 +1,20 @@
+.SearchBar {
+  display: inline-block;
+  text-align: center;
+  margin-top: 70vh;
+  margin-left: 20vw;
+  height: 30px;
+  width: 60vw;
+  opacity: 70%;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media screen and (min-width: 600px) {
+  .SearchBar {
+    width: 40vw;
+    height: 8vh;
+    margin-left: 30vw;
+    font-size: 18px;
+  }
+}
