@@ -1,0 +1,11 @@
+.popMovieImg {
+  width: 230px;
+  height: 350px;
+  margin: 40px;
+  margin-bottom: 10vh;
+}
+
+.imgContain {
+  display: flex;
+  justify-content: center;
+}
