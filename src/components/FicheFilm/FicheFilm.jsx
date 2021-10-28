@@ -3,6 +3,7 @@ import axios from 'axios';
 import './FicheFilm.css';
 
 export default function FicheFilm() {
+  // Declare states
   const [title, setTitle] = useState([]);
   const [voteAverage, setVoteAverage] = useState([]);
   const [poster, setPoster] = useState([]);
