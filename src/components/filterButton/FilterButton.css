@@ -1,0 +1,31 @@
+button {
+  margin-left: 30vw;
+  margin-top: 5vh;
+  height: 30px;
+  width: 40vw;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px black;
+  text-decoration-color: black;
+  color: black;
+  border: black solid 1px;
+}
+
+button:hover {
+  background-color: #575252;
+  color: white;
+}
+
+button:active {
+  background-color: #575252;
+  box-shadow: 0 5px #666;
+  transform: translateY(2px);
+}
+
+/* Responsive */
+@media screen and (min-width: 600px) {
+  button {
+    width: 20vw;
+    margin-left: 40vw;
+  }
+}
