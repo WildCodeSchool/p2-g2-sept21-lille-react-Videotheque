@@ -1,0 +1,49 @@
+.resultCard {
+  height: 380px;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 3px 10px 23px -10px black;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  align-items: center;
+}
+
+.resultCard:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.07);
+}
+
+.posterWrapper {
+  flex-direction: row;
+  height: 330px;
+  width: 220px;
+}
+
+.info {
+  display: flex;
+  text-align: center;
+  font-family: 'Reem Kufi', sans-serif;
+  font-weight: bolder;
+  height: 50px;
+  width: 220px;
+  color: black;
+  background: #1fe0;
+  padding: 1px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 220px;
+}
+
+img {
+  height: 380px;
+  width: 220px;
+}
