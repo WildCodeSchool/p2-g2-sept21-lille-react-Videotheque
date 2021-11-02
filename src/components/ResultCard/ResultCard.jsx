@@ -5,7 +5,6 @@ const ResultCard = (movie) => {
   const { title, poster_path: posterPath } = movie;
   const linkToFicheFilm = (e) => {
     e.preventDefault();
-    console.log(`${movie.id}`);
   };
   return (
     <div
