@@ -3,9 +3,18 @@ import './ResultCard.css';
 
 const ResultCard = (movie) => {
   const { title, poster_path: posterPath } = movie;
-
+  const linkToFicheFilm = (e) => {
+    e.preventDefault();
+    console.log(`${movie.id}`);
+  };
   return (
-    <div className="resultcard">
+    <div
+      className="resultcard"
+      role="button"
+      onClick={linkToFicheFilm}
+      onKeyPress={linkToFicheFilm}
+      tabIndex={0}
+    >
       <div className="poster">
         {posterPath ? (
           <img
