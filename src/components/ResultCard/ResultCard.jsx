@@ -14,7 +14,7 @@ const ResultCard = (movie) => {
           />
         ) : (
           <img
-            src="https:/viaplaceholder.com/220x300?text=image+not+found"
+            src="https://via.placeholder.com/220x330?text=image+not+found"
             alt={`${title} Poster`}
           />
         )}
