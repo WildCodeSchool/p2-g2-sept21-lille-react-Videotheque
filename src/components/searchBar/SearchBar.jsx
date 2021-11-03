@@ -4,7 +4,7 @@ import ResultCard from '../ResultCard/ResultCard';
 import './Search.css';
 
 const Search = () => {
-  const [query, setQuery] = useState(['']);
+  const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
   const onChange = (e) => {
