@@ -3,15 +3,15 @@ import './ResultCard.css';
 
 const ResultCard = (movie) => {
   const { title, poster_path: posterPath } = movie;
-  const linkToFicheFilm = (e) => {
+  const linkToMovieProfile = (e) => {
     e.preventDefault();
   };
   return (
     <div
-      className="resultcard"
+      className="resultCard"
       role="button"
-      onClick={linkToFicheFilm}
-      onKeyPress={linkToFicheFilm}
+      onClick={linkToMovieProfile}
+      onKeyPress={linkToMovieProfile}
       tabIndex={0}
     >
       <div className="poster">

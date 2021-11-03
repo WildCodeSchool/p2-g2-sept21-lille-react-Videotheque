@@ -1,4 +1,4 @@
-.resultcard {
+.resultCard {
   height: 380px;
   width: 220px;
   display: flex;
@@ -10,7 +10,7 @@
   box-shadow: 3px 10px 23px -10px black;
 }
 
-.resultcard:hover {
+.resultCard:hover {
   transition: all 0.3s ease-in-out;
   transform: scale(1.07);
 }

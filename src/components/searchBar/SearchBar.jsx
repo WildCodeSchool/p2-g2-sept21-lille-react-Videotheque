@@ -22,9 +22,9 @@ const Search = () => {
 
   return (
     <>
-      <div className="Search">
+      <div className="search">
         <input
-          className="SearchBar"
+          className="searchBar"
           type="search"
           placeholder="Search your movie"
           value={query}
