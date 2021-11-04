@@ -9,3 +9,19 @@
   display: flex;
   justify-content: center;
 }
+
+/* -------------------MQ----------------- */
+
+@media (min-width: 800px) {
+  .popMovieImg {
+    width: 320px;
+    height: 500px;
+    margin: 80px;
+    margin-bottom: 13vh;
+  }
+
+  .imgContain {
+    display: flex;
+    justify-content: center;
+  }
+}

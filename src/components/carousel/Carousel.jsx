@@ -1,8 +1,8 @@
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import './carousel.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './carousel.css';
 
 const Carousel = () => {
   const [moviePics, setMoviePics] = useState([]);
@@ -19,17 +19,19 @@ const Carousel = () => {
   }, []);
 
   const properties = {
-    duration: 10000,
+    duration: 5000,
     transitionDuration: 500,
     infinite: true,
     indicators: false,
-    arrows: false,
+    arrows: true,
     canSwap: true,
+    slidesToShow: 2,
+    slidesToScroll: 1,
   };
 
   return (
     <section className="slideContain">
-      <Slide {...properties}>
+      <Slide className="custom-slideshow" {...properties}>
         {moviePics.map((moviePic) => {
           const urlMovie = `https://image.tmdb.org/t/p/original/${moviePic.poster_path}`;
           return (
