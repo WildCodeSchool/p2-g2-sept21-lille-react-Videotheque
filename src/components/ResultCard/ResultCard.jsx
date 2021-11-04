@@ -1,19 +1,12 @@
 import React from 'react';
 import './ResultCard.css';
+import { Link } from 'react-router-dom';
 
 const ResultCard = (movie) => {
   const { title, poster_path: posterPath } = movie;
-  const linkToMovieProfile = (e) => {
-    e.preventDefault();
-  };
+
   return (
-    <div
-      className="resultCard"
-      role="button"
-      onClick={linkToMovieProfile}
-      onKeyPress={linkToMovieProfile}
-      tabIndex={0}
-    >
+    <Link to="/" className="resultCard">
       <div className="poster">
         {posterPath ? (
           <img
@@ -30,7 +23,7 @@ const ResultCard = (movie) => {
       <div className="info">
         <h3 className="title">{title}</h3>
       </div>
-    </div>
+    </Link>
   );
 };
 export default ResultCard;
