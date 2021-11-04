@@ -1,12 +1,37 @@
 .searchBar {
   display: inline-block;
   text-align: center;
-  margin-top: 70vh;
-  margin-left: 20vw;
   height: 30px;
   width: 60vw;
   opacity: 70%;
   border-radius: 10px;
+  box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Search {
+  display: flex;
+  height: 20vh;
+  padding-top: 30vh;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.results {
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 12vh;
+}
+
+.results li {
+  list-style: none;
+  margin: 12px;
+  height: 380px;
+  width: 220px;
 }
 
 .results {
@@ -25,8 +50,10 @@
 }
 
 /* Responsive */
+
 @media screen and (min-width: 600px) {
   .searchBar {
+
     width: 40vw;
     height: 8vh;
     margin-left: 30vw;

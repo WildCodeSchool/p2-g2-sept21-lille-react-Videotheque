@@ -58,7 +58,7 @@
 @media only screen and (min-width: 600px) {
   /* Desktop style */
   .navbar {
-    height: 15vh;
+    height: 10vh;
     width: 100vw;
     background: rgba(196, 196, 196, 0.2);
     display: flex;
@@ -70,17 +70,19 @@
   .logo {
     font-family: 'Reem Kufi', sans-serif;
     font-weight: normal;
-    font-size: 12vh;
+    font-size: 8vh;
     line-height: 135px;
     color: #000;
     margin-left: 1vw;
   }
 
+  .logo:hover {
+    transform: scale(1.03);
+  }
+
   .navlink {
     font-family: 'Reem Kufi', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 5vh;
+    font-size: 3.5vh;
     line-height: 60px;
     color: #fff;
     margin-right: 8vw;
