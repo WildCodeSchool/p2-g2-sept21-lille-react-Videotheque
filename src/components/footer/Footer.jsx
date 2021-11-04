@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <section className="footer">
       <div className="team">
-        <span className="keepnteam">KeepN Team</span>
+        <span className="keepnTeam">KeepN Team</span>
         <GithubProfile />
         <GithubMobile />
       </div>
@@ -17,7 +17,7 @@ const Footer = () => {
         </a>
       </div>
       <div>
-        <a href="https://www.themoviedb.org/" className="creditslink">
+        <a href="https://www.themoviedb.org/" className="creditsLink">
           Credits
         </a>
       </div>

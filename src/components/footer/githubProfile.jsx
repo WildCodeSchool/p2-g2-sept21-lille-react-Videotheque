@@ -1,4 +1,4 @@
-import GithubIcon from './githubIcon.png';
+import githubIcon from './githubIcon.png';
 
 const members = [
   {
@@ -26,13 +26,13 @@ const members = [
   },
 ];
 
-const githubProfile = () => {
+const GithubProfile = () => {
   return (
     <div className="keepnBloc">
       {members.map((member) => (
         <div className="githubTeam">
           <a href={member.link}>
-            <img src={GithubIcon} alt="githubLogo" />
+            <img src={githubIcon} alt="githubLogo" />
           </a>
         </div>
       ))}
@@ -40,4 +40,4 @@ const githubProfile = () => {
   );
 };
 
-export default githubProfile;
+export default GithubProfile;

@@ -7,13 +7,13 @@ const team = [
   },
 ];
 
-const githubMobile = () => {
+const GithubMobile = () => {
   return (
     <div className="teamProfile">
       {team.map((e) => (
         <div className="githubMobile">
           <a href={e.link}>
-            <img src={githubIcon} alt="Githublogo" />
+            <img src={githubIcon} alt="githubLogo" />
           </a>
         </div>
       ))}
@@ -21,4 +21,4 @@ const githubMobile = () => {
   );
 };
 
-export default githubMobile;
+export default GithubMobile;
