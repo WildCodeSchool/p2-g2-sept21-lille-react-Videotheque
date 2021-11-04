@@ -1,26 +1,21 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SearchBar from './components/searchBar/SearchBar';
 import Header from './components/header/Header';
 import './App.css';
 import Footer from './components/Footer/footer';
-import FicheFilm from './components/FicheFilm/FicheFilm';
 
 function App() {
   return (
     <div className="main">
-      <Router>
+      <BrowserRouter>
         <Switch>
-          <Route exact path="/Home">
+          <Route path="/" exact>
             <Header />
             <SearchBar />
             <Footer />
           </Route>
-          <Route path="/FicheFilm">
-            <Header />
-            <FicheFilm />
-          </Route>
         </Switch>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
