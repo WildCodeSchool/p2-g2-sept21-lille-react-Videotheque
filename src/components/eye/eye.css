@@ -18,128 +18,192 @@ body {
   width: 100%;
 }
 
-.ball {
-  background-color: white;
-  border-radius: 50%;
-  height: 4rem;
-  position: absolute;
-  width: 4rem;
-  box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
-}
-
-.blackBall {
-  background-color: black;
-  border-radius: 80%;
-  height: 1rem;
-  position: absolute;
-  width: 1rem;
-  animation: ballBouncing 1.2s ease-in infinite;
-  bottom: 3.6rem;
-  transform-origin: bottom;
-}
-
-.coloredBall {
-  background-color: rgb(52, 173, 243);
-  border-radius: 100%;
-  height: 2.5rem;
-  position: absolute;
-  width: 2.5rem;
-  background-image: url('blue-eye.png');
-  background-size: contain;
-  animation: ballBouncing 1.2s ease-in infinite;
-  bottom: 2.9rem;
-  transform-origin: bottom;
-}
-
-.titleContain {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.title {
-  position: absolute;
-  font-size: 19vw;
-  text-align: center;
-  vertical-align: bottom;
-  font-family: 'Reem Kufi', sans-serif;
-}
-
-/* -------------------------------------Eye bouncing animation----------------------------------------------- */
-
-.ball-bouncing {
-  display: flex;
-  justify-content: center;
-}
-
-.ball-bouncing::before {
-  animation: shadowBouncing 1.2s ease-in infinite;
-  background-color: rgba(5, 5, 5, 0.1);
-  border-radius: 1rem;
-  bottom: 2rem;
-  content: '';
-  height: 0.15rem;
-  position: absolute;
-  width: 3rem;
-  display: flex;
-  align-items: center;
-}
-
-.ball-bouncing .ball {
-  animation: ballBouncing 1.2s ease-in infinite;
-  bottom: 2.1rem;
-  transform-origin: bottom;
-}
-
 .card-container {
-  margin-left: 60%;
+  position: relative;
 }
 
-@keyframes ballBouncing {
-  0%,
-  100% {
-    transform: scale(1.5, 0.5);
+.letterK {
+  display: none;
+}
+
+/* -------------------------------------EYE BOUCING DESKTOP VERSION----------------------------------------------- */
+@media screen and (min-width: 600px) {
+  .ball-bouncing {
+    display: flex;
+    justify-content: center;
   }
 
-  20% {
-    transform: scaleY(1.2);
+  .card-container {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 55%;
   }
 
-  40%,
-  80% {
-    transform: translateY(-14rem);
+  .ball {
+    background-color: white;
+    border-radius: 50%;
+    height: 4rem;
+    position: absolute;
+    width: 4rem;
+    box-shadow: -1px 2px 10px 3px rgba(0, 0, 0, 0.3) inset;
   }
 
-  70% {
-    transform: translateY(-15rem);
+  .blackBall {
+    background-color: black;
+    border-radius: 80%;
+    height: 1rem;
+    position: absolute;
+    width: 1rem;
+    animation: ballBouncing 1.2s ease-in infinite;
+    bottom: 3.6rem;
+    transform-origin: bottom;
   }
 
-  90% {
-    transform: translateY(0);
+  .coloredBall {
+    background-color: rgb(240, 168, 100);
+    border-radius: 100%;
+    height: 2.5rem;
+    position: absolute;
+    width: 2.5rem;
+    animation: ballBouncing 1.2s ease-in infinite;
+    bottom: 2.9rem;
+    transform-origin: bottom;
+  }
+
+  .ball-bouncing::before {
+    animation: shadowBouncing 1.2s ease-in infinite;
+    background-color: rgba(5, 5, 5, 0.1);
+    border-radius: 1rem;
+    bottom: 2rem;
+    content: '';
+    height: 0.15rem;
+    position: absolute;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .ball-bouncing .ball {
+    animation: ballBouncing 1.2s ease-in infinite;
+    bottom: 2.1rem;
+    transform-origin: bottom;
+  }
+
+  @keyframes ballBouncing {
+    0%,
+    100% {
+      transform: scale(1.5, 0.5);
+    }
+
+    20% {
+      transform: scaleY(1.2);
+    }
+
+    40%,
+    80% {
+      transform: translateY(-14rem);
+    }
+
+    70% {
+      transform: translateY(-15rem);
+    }
+
+    90% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shadowBouncing {
+    0%,
+    100% {
+      transform: scale(2, 0.8);
+    }
+
+    20% {
+      transform: scale(1.2, 0.8);
+    }
+
+    40%,
+    80% {
+      transform: scale(0.5, 0.2);
+    }
+
+    70% {
+      transform: scale(0.5, 0.15);
+    }
+
+    90% {
+      transform: scale(1.5, 0.6);
+    }
   }
 }
 
-@keyframes shadowBouncing {
-  0%,
-  100% {
-    transform: scale(2, 0.8);
+/* -----------------------------------EYE BLINKING MOBILE VERSION-------------------------- */
+@media screen and (max-width: 600px) {
+  .card-container {
+    position: relative;
+    margin-top: 3%;
+    margin-left: 55%;
+    transition: 0.3s ease-in-out;
   }
 
-  20% {
-    transform: scale(1.2, 0.8);
+  .ball {
+    background-color: white;
+    border-radius: 50%;
+    height: 3.3rem;
+    position: absolute;
+    width: 3.3rem;
+    bottom: 41rem;
+    left: 5rem;
+    animation: blink 2.4s infinite;
+    box-shadow: 13px 1px 8px 2px rgba(102, 63, 18, 0.507);
   }
 
-  40%,
-  80% {
-    transform: scale(0.5, 0.2);
+  .blackBall {
+    background-color: black;
+    border-radius: 80%;
+    height: 1rem;
+    position: absolute;
+    width: 1rem;
+    bottom: 42.1rem;
+    left: 6.2rem;
+    transform-origin: bottom;
+    animation: blink 2.4s infinite;
   }
 
-  70% {
-    transform: scale(0.5, 0.15);
+  .coloredBall {
+    background-color: rgb(240, 168, 100);
+    border-radius: 100%;
+    height: 2.5rem;
+    position: absolute;
+    width: 2.5rem;
+    animation: blink 2.4s infinite;
+    bottom: 41.35rem;
+    left: 5.35rem;
+    transform-origin: bottom;
   }
 
-  90% {
-    transform: scale(1.5, 0.6);
+  @keyframes blink {
+    90% {
+      transform: none;
+      animation-timing-function: ease-in;
+    }
+
+    93% {
+      transform: translateY(15px) scaleY(0);
+    }
+
+    100% {
+      animation-timing-function: ease-out;
+    }
+  }
+
+  .letterK {
+    display: inline;
+    font-size: 70px;
+    position: relative;
+    bottom: 10%;
+    right: 70%;
+    font-family: "reem kufi", sans-serif;
   }
 }
