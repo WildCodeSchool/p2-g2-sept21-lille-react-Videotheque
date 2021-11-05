@@ -1,0 +1,51 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin-top: 1vw;
+  padding: auto;
+  background-color: rgba(0, 0, 0, 0.39);
+  color: white;
+  position: fixed;
+  bottom: 0;
+  height: 7vh;
+  width: 100vw;
+  font-size: 3vw;
+  text-shadow: 1px 1px 1px wheat;
+}
+
+.wildAndSons,
+.creditsLink {
+  color: white;
+  text-decoration-line: none;
+  text-shadow: 1px 1px 1px wheat;
+}
+
+.keepnBloc {
+  display: flex;
+  flex-direction: row;
+}
+
+.team {
+  height: 100%;
+  text-align: center;
+}
+
+.keepnTeam {
+  line-height: 22px;
+}
+
+a {
+  margin-top: 20vh;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    padding-top: 4px;
+    height: auto;
+  }
+
+  .githubTeam {
+    display: none;
+  }
+}
