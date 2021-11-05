@@ -4,8 +4,7 @@ import SearchBar from './components/searchBar/SearchBar';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import './App.css';
-import FilterButton from './components/filterButton/FilterButton';
-import Eye from './components/eye/Eye';
+
 import FicheFilm from './components/FicheFilm/FicheFilm';
 
 function App() {
@@ -17,8 +16,6 @@ function App() {
             <Header />
             <Carousel />
             <SearchBar />
-            <FilterButton />
-            <Eye />
             <Footer />
           </Route>
 

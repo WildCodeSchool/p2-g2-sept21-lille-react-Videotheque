@@ -1,5 +1,7 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
+import Eye from '../eye/Eye';
+import FilterButton from '../filterButton/FilterButton';
 
 import ResultCard from '../ResultCard/ResultCard';
 import './Search.css';
@@ -33,6 +35,10 @@ const SearchBar = () => {
           onChange={onChange}
         />
       </div>
+
+      <FilterButton />
+      <Eye />
+
       {results.length > 0 && (
         <ul className="results">
           {results.map((movie) => (
