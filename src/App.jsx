@@ -3,6 +3,7 @@ import SearchBar from './components/searchBar/SearchBar';
 import Header from './components/header/Header';
 import './App.css';
 import Footer from './components/Footer/footer';
+import Carousel from './components/carousel/Carousel';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Header />
+            <Carousel />
             <SearchBar />
             <Footer />
           </Route>
