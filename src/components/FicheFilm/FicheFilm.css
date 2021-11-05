@@ -7,8 +7,8 @@ body > div {
 }
 
 img {
-  width: 325px;
-  height: 418px;
+  width: 425px;
+  height: 518px;
 }
 
 .posterTrailer {
@@ -18,21 +18,37 @@ img {
   margin-bottom: 40px;
 }
 
-.poster {
+.poster
+{
   margin-left: 90px;
   margin-right: 40px;
 }
 
-.backgroundPoster {
+.backgroundPoster
+{
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 518px;
   position: absolute;
   opacity: 0.5;
-  clip-path: inset(0% 0% 266px 0%);
 }
 
-.buttonTrailer {
+.backgroundPoster > img
+{
+  -webkit-box-shadow: inset 0px 2px 50px 13px #000000; 
+  box-shadow: inset 0px 2px 50px 13px #000000;
+}
+
+.buttonAdd
+{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin-right: -60px;
+}
+
+.buttonTrailer 
+{
   width: 60px;
   height: 60px;
   cursor: pointer;
@@ -40,12 +56,6 @@ img {
   margin-right: 5px;
 }
 
-.buttonAdd {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  margin-right: -60px;
-}
 
 .overview {
   font-size: 25px;
@@ -79,7 +89,7 @@ img {
 }
 
 .genres > p {
-  padding-top: 80px;
+  padding-top: 100px;
   padding-right: 20px;
 }
 
@@ -91,7 +101,9 @@ img {
   width: 100%;
 }
 
-.directorTimeDate > p {
+.directorTimeDate > p
+{
+  
   padding-right: 10px;
   width: 200px;
 }
@@ -111,7 +123,7 @@ img {
 }
 
 .actors > div {
-  margin: 50px;
+  margin: 40px;
 }
 
 .actors > div p {
@@ -154,51 +166,31 @@ img {
   margin-left: 3px;
   margin-top: 5px;
 }
-
-@media screen and (max-width: 1920px) {
-  /* .backgroundPoster
+@media screen and (max-width: 1920px )
 {
-  overflow: contain;
-} */
-
-  .poster {
-    margin-left: 90px;
-    margin-right: 5px;
-  }
-
-  .buttonTrailer {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-right: -45px;
-  }
-
-  .buttonAdd {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    margin-right: -59px;
-    margin-top: 270px;
-  }
+.poster
+{
+  margin-left: 90px;
+  margin-right: 5px;
 }
 
-@media screen and (max-width: 1280px) {
-  .backgroundPoster {
-    clip-path: inset(0 0 50.4vh 0);
-  }
+.buttonTrailer 
+{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: -59px;
+}
 
-  .genres {
-    flex-wrap: wrap;
-  }
-
-  .overview {
-    width: 80%;
-  }
-
-  .directorTimeDate {
-    padding-left: 10px;
-  }
+.buttonAdd
+{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin-right: -59px;
+  margin-top: 360px;
+}
 }
 
 @media screen and (max-width: 390px) {
@@ -221,14 +213,17 @@ img {
     width: 48%;
     height: 48%;
   }
-
-  .buttons {
+  .backgroundPoster
+  {
+    display: none;
+  }
+  .buttons
+  {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     padding-right: 60px;
   }
-
   .buttonTrailer {
     width: 60px;
     height: 60px;
@@ -236,14 +231,13 @@ img {
     margin-top: 40px;
     margin-bottom: 40px;
   }
-
-  .buttonAdd {
+  
+  .buttonAdd{
     width: 60px;
     height: 60px;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 40px;;
   }
-
   .vote {
     font-size: 18px;
   }
@@ -255,9 +249,11 @@ img {
     display: flex;
     flex-direction: column;
   }
-
-  .directorTimeDate > p {
-    padding-right: 30px;
+  
+  .directorTimeDate > p
+  {
+    margin-left: -50%;
+    padding-right: 10px;
     padding-bottom: 20px;
     width: 200px;
   }
@@ -286,7 +282,7 @@ img {
     font-size: 20px;
     margin-top: 20px;
     margin-left: 20px;
-    text-align: justify;
+    text-align: left;
     width: 70%;
   }
 
@@ -308,3 +304,4 @@ img {
     margin: 2px;
   }
 }
+
