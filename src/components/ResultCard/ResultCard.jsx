@@ -5,7 +5,7 @@ const ResultCard = (movie) => {
   const { title, poster_path: posterPath } = movie;
   const poster = posterPath
     ? `https://image.tmdb.org/t/p/w220_and_h330_face${posterPath}`
-    : `https://via.placeholder.com/220x330?text={${title} Poster}`;
+    : `https://via.placeholder.com/220x330?text=${title} Poster`;
 
   return (
     <Link to="/" className="resultCard">

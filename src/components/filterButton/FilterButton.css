@@ -1,4 +1,4 @@
-button {
+.filterButton {
   height: 30px;
   width: 40vw;
   border-radius: 9999px;
@@ -20,14 +20,24 @@ button:active {
   transform: translateY(2px);
 }
 
+.filterButtonBlock {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10vh;
+  margin-top: 2%;
+}
+
 /* Responsive */
 @media screen and (min-width: 600px) {
-  button {
-    width: 20vw;
+  .filterButton {
+    width: 17vw;
+    height: 3vh;
   }
 
   .filterButtonBlock {
     display: flex;
     justify-content: center;
+    margin-bottom: 17vh;
+    margin-top: 3%;
   }
 }
