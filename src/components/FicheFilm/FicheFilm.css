@@ -7,8 +7,8 @@ body > div {
 }
 
 img {
-  width: 325px;
-  height: 418px;
+  width: 425px;
+  height: 518px;
 }
 
 .posterTrailer {
@@ -16,7 +16,6 @@ img {
   justify-content: space-evenly;
   margin-top: 40px;
   margin-bottom: 40px;
-  
 }
 
 .poster
@@ -29,10 +28,23 @@ img {
 {
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 518px;
   position: absolute;
   opacity: 0.5;
-  clip-path: inset(0% 0% 266px 0%);
+}
+
+.backgroundPoster > img
+{
+  -webkit-box-shadow: inset 0px 2px 50px 13px #000000; 
+  box-shadow: inset 0px 2px 50px 13px #000000;
+}
+
+.buttonAdd
+{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin-right: -60px;
 }
 
 .buttonTrailer 
@@ -44,13 +56,6 @@ img {
   margin-right: 5px;
 }
 
-.buttonAdd
-{
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  margin-right: -60px;
-}
 
 .overview {
   font-size: 25px;
@@ -84,7 +89,7 @@ img {
 }
 
 .genres > p {
-  padding-top: 80px;
+  padding-top: 100px;
   padding-right: 20px;
 }
 
@@ -118,7 +123,7 @@ img {
 }
 
 .actors > div {
-  margin: 50px;
+  margin: 40px;
 }
 
 .actors > div p {
@@ -163,11 +168,6 @@ img {
 }
 @media screen and (max-width: 1920px )
 {
-/* .backgroundPoster
-{
-  overflow: contain;
-} */
-
 .poster
 {
   margin-left: 90px;
@@ -180,7 +180,7 @@ img {
   height: 60px;
   cursor: pointer;
   margin-top: 10px;
-  margin-right: -45px;
+  margin-right: -59px;
 }
 
 .buttonAdd
@@ -189,27 +189,10 @@ img {
   height: 60px;
   cursor: pointer;
   margin-right: -59px;
-  margin-top: 270px;
+  margin-top: 360px;
 }
 }
-@media screen and (max-width: 1280px )
-{
-  .backgroundPoster
-  {
-    clip-path: inset(0 0 50.4vh 0);
-  }
-  .genres {
-    flex-wrap: wrap;
-  }
 
-  .overview
-  {
-    width: 80%;
-  }
-  .directorTimeDate {
-    padding-left: 10px;
-  }
-}
 @media screen and (max-width: 390px) {
   .titreVote {
     font-size: 22px;
@@ -230,7 +213,10 @@ img {
     width: 48%;
     height: 48%;
   }
-
+  .backgroundPoster
+  {
+    display: none;
+  }
   .buttons
   {
     display: flex;
@@ -266,7 +252,8 @@ img {
   
   .directorTimeDate > p
   {
-    padding-right: 30px;
+    margin-left: -50%;
+    padding-right: 10px;
     padding-bottom: 20px;
     width: 200px;
   }
@@ -295,7 +282,7 @@ img {
     font-size: 20px;
     margin-top: 20px;
     margin-left: 20px;
-    text-align: justify;
+    text-align: left;
     width: 70%;
   }
 
