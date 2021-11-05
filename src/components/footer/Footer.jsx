@@ -7,7 +7,8 @@ const Footer = () => {
   return (
     <section className="footer">
       <div className="team">
-        <span className="keepnTeam">KeepN Team</span>
+        <h1>About us</h1>
+        <p className="keepnTeam">KeepN Team</p>
         <GithubProfile />
         <GithubMobile />
       </div>

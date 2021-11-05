@@ -32,7 +32,7 @@ const GithubProfile = () => {
       {members.map((member) => (
         <div className="githubTeam">
           <a href={member.link}>
-            <img src={githubIcon} alt="githubLogo" />
+            <img className="githubLogo" src={githubIcon} alt="githubLogo" />
           </a>
         </div>
       ))}

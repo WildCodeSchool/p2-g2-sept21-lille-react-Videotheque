@@ -9,7 +9,7 @@ const team = [
 
 const GithubMobile = () => {
   return (
-    <div className="teamProfile">
+    <div className="githubProject">
       {team.map((e) => (
         <div className="githubMobile">
           <a href={e.link}>

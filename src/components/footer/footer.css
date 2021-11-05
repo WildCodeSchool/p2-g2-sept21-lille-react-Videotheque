@@ -1,24 +1,19 @@
 .footer {
   display: flex;
+  bottom: 0;
   justify-content: space-around;
-  align-items: baseline;
-  margin-top: 1vw;
-  padding: auto;
   background-color: rgba(0, 0, 0, 0.39);
   color: white;
-  position: fixed;
-  bottom: 0;
-  height: 7vh;
+  height: 19vh;
   width: 100vw;
-  font-size: 3vw;
-  text-shadow: 1px 1px 1px wheat;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .wildAndSons,
 .creditsLink {
   color: white;
   text-decoration-line: none;
-  text-shadow: 1px 1px 1px wheat;
 }
 
 .keepnBloc {
@@ -26,26 +21,42 @@
   flex-direction: row;
 }
 
-.team {
-  height: 100%;
-  text-align: center;
-}
-
 .keepnTeam {
   line-height: 22px;
 }
 
-a {
-  margin-top: 20vh;
-}
-
 @media screen and (max-width: 600px) {
   .footer {
-    padding-top: 4px;
-    height: auto;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.39);
+    color: white;
+    height: 9vh;
+    width: 100vw;
+    font-size: 17px;
   }
 
   .githubTeam {
     display: none;
+  }
+
+  .githubProject {
+    display: visible;
+  }
+}
+
+/* ---------------DESKTOP VERSION ----------------------- */
+
+@media screen and (min-width: 600px) {
+  .githubProject {
+    display: none;
+  }
+
+  .githubLogo {
+    height: 40px;
+    width: 40px;
   }
 }

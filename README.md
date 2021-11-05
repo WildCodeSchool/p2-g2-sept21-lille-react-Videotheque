@@ -11,3 +11,6 @@
 ### Install `husky`, which will check your code everytime you commit files
 
 - `npm run prepare`
+
+# Project Members
+
