@@ -2,7 +2,7 @@ import './FilterButton.css';
 
 function FilterButton() {
   return (
-    <div>
+    <div className="filterButtonBlock">
       <button className="Button" type="button">
         Advanced Search
       </button>
