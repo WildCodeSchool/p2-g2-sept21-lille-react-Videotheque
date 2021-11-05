@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './FicheFilm.css';
+import { useParams } from 'react-router-dom';
 import buttonTrailer from './play.png';
 import star1 from './star1.png';
 import star2 from './star2.png';
@@ -22,11 +23,11 @@ export default function FicheFilm() {
   const [releaseDate, setReleaseDate] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
-
+  const { id } = useParams();
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/576845?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
+        `https://api.themoviedb.org/3/movie/${id}?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
         setTitle(data.original_title);
@@ -44,7 +45,7 @@ export default function FicheFilm() {
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/576845/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
         setDirector(data.crew[5]);
@@ -58,7 +59,7 @@ export default function FicheFilm() {
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/576845/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
         setTrailer(data.results[0]);

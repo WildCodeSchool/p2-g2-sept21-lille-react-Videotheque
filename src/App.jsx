@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer';
 import './App.css';
 import FilterButton from './components/filterButton/FilterButton';
 import Eye from './components/eye/Eye';
+import FicheFilm from './components/FicheFilm/FicheFilm';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
             <FilterButton />
             <Eye />
             <Footer />
+          </Route>
+
+          <Route path="/FicheFilm/:id">
+            <Header />
+            <FicheFilm />
           </Route>
         </Switch>
       </BrowserRouter>

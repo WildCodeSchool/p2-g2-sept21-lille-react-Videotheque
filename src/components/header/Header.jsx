@@ -15,7 +15,7 @@ const Header = () => {
       <nav className="navbar ">
         <div className="logo">
           <Link
-            to="/Home"
+            to="/"
             className="Home"
             style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
