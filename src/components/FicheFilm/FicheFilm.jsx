@@ -88,11 +88,11 @@ export default function FicheFilm() {
     <div>
       <div className="titreVote">
         <p>{title}</p>
-        <p className="vote">
+        <div className="vote">
           <img className="starScore" src={UsersScorePictures} alt="StarScore" />
           <br />
           <div className="numberVote">{numberVote} votes</div>
-        </p>
+        </div>
       </div>
       <div className="posterTrailer">
         <img
