@@ -49,9 +49,6 @@ export default function FicheFilm() {
       .then(({ data }) => {
         setDirector(data.crew[5]);
         setActors(data.cast);
-      })
-      .catch(() => {
-        console.error('Erreur API');
       });
   }, []);
 
@@ -62,9 +59,6 @@ export default function FicheFilm() {
       )
       .then(({ data }) => {
         setTrailer(data.results[0]);
-      })
-      .catch(() => {
-        console.error('Erreur API');
       });
   }, []);
 
