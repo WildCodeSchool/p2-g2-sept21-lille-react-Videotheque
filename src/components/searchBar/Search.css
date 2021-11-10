@@ -1,4 +1,4 @@
-.SearchBar {
+.searchBar {
   display: inline-block;
   text-align: center;
   margin-top: 70vh;
@@ -9,9 +9,24 @@
   border-radius: 10px;
 }
 
+.results {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin-bottom: 12vh;
+}
+
+.results li {
+  list-style: none;
+  margin: 12px;
+  height: 380px;
+  width: 220px;
+}
+
 /* Responsive */
 @media screen and (min-width: 600px) {
-  .SearchBar {
+  .searchBar {
     width: 40vw;
     height: 8vh;
     margin-left: 30vw;
