@@ -52,3 +52,10 @@ body {
   background-size: 100vw 1200px;
   background-position: 0 0, 0 0, 10px 18px, 15px 18px, 0 0, 10px 18px;
 }
+
+.title {
+  width: 100vw;
+  margin-top: 2vh;
+  text-align: center;
+  margin-left: 6vw;
+}
