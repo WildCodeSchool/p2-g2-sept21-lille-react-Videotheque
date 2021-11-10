@@ -23,7 +23,9 @@ export default function FicheFilm() {
   const [releaseDate, setReleaseDate] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [providers, setProviders] = useState([]);
+  const [providersRent, setProvidersRent] = useState([]);
+  const [providersFlatrate, setProvidersFlatrate] = useState([]);
+  const [providersBuy, setProvidersBuy] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     axios
@@ -46,12 +48,18 @@ export default function FicheFilm() {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=599ded6f0fc3bcaee1882e83ae0d438a&watch_region=FR`
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
-      .then((res) => res.data)
-      .then((data) => {
-        setProviders(data.results.FR);
-        console.log(providers.flatrate);
+
+      .then(({ data }) => {
+        setProvidersRent(data.results.FR.rent);
+        setProvidersFlatrate(data.results.FR.flatrate);
+        setProvidersBuy(data.results.FR.buy);
+      })
+      .catch(() => {
+        setProvidersRent([]);
+        setProvidersFlatrate([]);
+        setProvidersBuy([]);
       });
   }, []);
 
@@ -65,7 +73,8 @@ export default function FicheFilm() {
         setActors(data.cast);
       })
       .catch(() => {
-        console.error('Erreur API');
+        setDirector(['']);
+        setActors(['']);
       });
   }, []);
 
@@ -128,15 +137,21 @@ export default function FicheFilm() {
           <div className="posterAndOverwiew">
             <div className="genresOverview">
               <p className="overview">{overview}</p>
-              <p>
-                {director.job} :
-                <br />
-                {director.name}
-              </p>
-              <p>
-                {hour} H {min}
-                <br /> ({releaseDate})
-              </p>
+              <div className="director">
+                {typeof director !== 'undefined' ? (
+                  <p>
+                    {director.job} :
+                    <br />
+                    {director.name}
+                  </p>
+                ) : (
+                  <p>Director : unknown</p>
+                )}
+                <p>
+                  {hour} H {min}
+                  <br /> ({releaseDate})
+                </p>
+              </div>
             </div>
 
             <div className="buttons">
@@ -156,10 +171,54 @@ export default function FicheFilm() {
             </div>
           </div>
           <div className="directorTimeDate">
-            <img
-              src={`https://image.tmdb.org/t/p/original${providers.logo_path}`}
-              alt="test"
-            />
+            <div className="Povide">
+              <h3>Rent</h3>
+              {typeof providersRent && (
+                <>
+                  {providersRent.map((providerRent) => {
+                    return (
+                      <img
+                        className="PovIco"
+                        src={`https://image.tmdb.org/t/p/original${providerRent.logo_path}`}
+                        alt="{provider.provider_name}"
+                      />
+                    );
+                  })}
+                </>
+              )}
+            </div>
+            <div className="Povide">
+              <h3>Streaming</h3>
+              {typeof providersFlatrate !== 'undefined' && (
+                <>
+                  {providersFlatrate.map((providerFlatrate) => {
+                    return (
+                      <img
+                        className="PovIco"
+                        src={`https://image.tmdb.org/t/p/original${providerFlatrate.logo_path}`}
+                        alt="{provider.provider_name}"
+                      />
+                    );
+                  })}
+                </>
+              )}
+            </div>
+            <div className="ProvideType">
+              <h3 className>Buy</h3>
+              {providersBuy.length > 0 && (
+                <>
+                  {providersBuy.map((providerBuy) => {
+                    return (
+                      <img
+                        className="PovIco"
+                        src={`https://image.tmdb.org/t/p/original${providerBuy.logo_path}`}
+                        alt="{provider.provider_name}"
+                      />
+                    );
+                  })}
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
