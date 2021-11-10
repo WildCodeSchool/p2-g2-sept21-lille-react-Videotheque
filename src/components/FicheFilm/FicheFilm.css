@@ -71,7 +71,7 @@ img {
   display: flex;
   flex-direction: column;
   margin-left: 55px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .genres {
@@ -80,21 +80,24 @@ img {
 }
 
 .genres > p {
-  padding-top: 100px;
+  padding-top: 120px;
   padding-right: 20px;
+  font-weight: bold;
 }
 
 .directorTimeDate {
   font-size: 25px;
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding-left: 100px;
   width: 100%;
 }
 
 .directorTimeDate > p {
-  padding-right: 10px;
   width: 200px;
+  padding-bottom: 30px;
 }
 
 .actors {
@@ -289,5 +292,14 @@ img {
 
   .actors > div {
     margin: 2px;
+  }
+
+  .starScore {
+    width: 87px;
+    height: 16px;
+  }
+
+  .numberVote {
+    font-size: 12px;
   }
 }

@@ -10,16 +10,16 @@ import star5 from './star5.png';
 import buttonAdd from './add.png';
 
 export default function FicheFilm() {
-  const [title, setTitle] = useState([]);
-  const [voteAverage, setVoteAverage] = useState([]);
-  const [numberVote, setNumberVote] = useState([]);
-  const [poster, setPoster] = useState([]);
-  const [backdrop, setBackdrop] = useState([]);
-  const [director, setDirector] = useState([]);
-  const [trailer, setTrailer] = useState([]);
-  const [overview, setOverview] = useState([]);
-  const [runtime, setRuntime] = useState([]);
-  const [releaseDate, setReleaseDate] = useState([]);
+  const [titles, setTitles] = useState([]);
+  const [voteAverages, setVoteAverages] = useState([]);
+  const [numberVotes, setNumberVotes] = useState([]);
+  const [posters, setPosters] = useState([]);
+  const [backdrops, setBackdrops] = useState([]);
+  const [directors, setDirectors] = useState([]);
+  const [trailers, setTrailers] = useState([]);
+  const [overviews, setOverviews] = useState([]);
+  const [runtimes, setRuntimes] = useState([]);
+  const [releaseDates, setReleaseDates] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
 
@@ -29,14 +29,14 @@ export default function FicheFilm() {
         'https://api.themoviedb.org/3/movie/576845?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
       )
       .then(({ data }) => {
-        setTitle(data.original_title);
-        setVoteAverage(data.vote_average);
-        setNumberVote(data.vote_count);
-        setPoster(data.poster_path);
-        setBackdrop(data.backdrop_path);
-        setOverview(data.overview);
-        setRuntime(data.runtime);
-        setReleaseDate(data.release_date);
+        setTitles(data.original_title);
+        setVoteAverages(data.vote_average);
+        setNumberVotes(data.vote_count);
+        setPosters(data.poster_path);
+        setBackdrops(data.backdrop_path);
+        setOverviews(data.overview);
+        setRuntimes(data.runtime);
+        setReleaseDates(data.release_date);
         setGenres(data.genres);
       });
   }, []);
@@ -47,7 +47,7 @@ export default function FicheFilm() {
         'https://api.themoviedb.org/3/movie/576845/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
       )
       .then(({ data }) => {
-        setDirector(data.crew[5]);
+        setDirectors(data.crew[5]);
         setActors(data.cast);
       });
   }, []);
@@ -58,56 +58,58 @@ export default function FicheFilm() {
         'https://api.themoviedb.org/3/movie/576845/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
       )
       .then(({ data }) => {
-        setTrailer(data.results[0]);
+        setTrailers(data.results[0]);
       });
   }, []);
 
-  let UsersScorePictures;
-  if (voteAverage === 10) {
-    UsersScorePictures = star5;
-  } else if (voteAverage < 10 && voteAverage >= 8) {
-    UsersScorePictures = star4;
-  } else if (voteAverage < 8 && voteAverage >= 6) {
-    UsersScorePictures = star3;
-  } else if (voteAverage < 6 && voteAverage >= 4) {
-    UsersScorePictures = star2;
-  } else if (voteAverage < 4) {
-    UsersScorePictures = star1;
-  }
+  const Star = () => {
+    if (voteAverages === 10) {
+      return star5;
+    }
+    if (voteAverages < 10 && voteAverages >= 8) {
+      return star4;
+    }
+    if (voteAverages < 8 && voteAverages >= 6) {
+      return star3;
+    }
+    if (voteAverages < 6 && voteAverages >= 4) {
+      return star2;
+    }
+    return star1;
+  };
 
-  const hour = (runtime - (runtime % 60)) / 60;
-  const min = (runtime / 60 - hour) * 60;
+  const hour = (runtimes - (runtimes % 60)) / 60;
+  const min = (runtimes / 60 - hour) * 60;
 
   return (
     <div>
       <div className="titreVote">
-        <p>{title}</p>
+        <p>{titles}</p>
         <div className="vote">
-          <img className="starScore" src={UsersScorePictures} alt="StarScore" />
-          <br />
-          <div className="numberVote">{numberVote} votes</div>
+          <img className="starScore" src={Star()} alt="StarScore" />
+          <div className="numberVote">{numberVotes} votes</div>
         </div>
       </div>
       <div className="posterTrailer">
         <img
           className="backgroundPoster"
-          src={`https://image.tmdb.org/t/p/original${backdrop}`}
+          src={`https://image.tmdb.org/t/p/original${backdrops}`}
           alt="fond"
         />
         <div className="directorTimeDate">
           <p>
-            {director.job} :
+            {directors.job} :
             <br />
-            {director.name}
+            {directors.name}
           </p>
           <p>
             {hour} H {min}
-            <br /> ({releaseDate})
           </p>
+          <p>({releaseDates})</p>
         </div>
         <div className="buttons">
           <img className="buttonAdd" src={buttonAdd} alt="addCollection" />
-          <a href={`https://www.youtube.com/embed/${trailer.key}`}>
+          <a href={`https://www.youtube.com/embed/${trailers.key}`}>
             <img
               className="buttonTrailer"
               src={buttonTrailer}
@@ -117,7 +119,7 @@ export default function FicheFilm() {
         </div>
         <img
           className="poster"
-          src={`https://image.tmdb.org/t/p/original${poster}`}
+          src={`https://image.tmdb.org/t/p/original${posters}`}
           alt="trailer"
         />
 
@@ -127,7 +129,7 @@ export default function FicheFilm() {
               return <p>{genre.name}</p>;
             })}
           </div>
-          <p className="overview">{overview}</p>
+          <p className="overview">{overviews}</p>
         </div>
       </div>
 
