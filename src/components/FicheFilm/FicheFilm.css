@@ -15,14 +15,14 @@ img {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 41px;
   margin-bottom: 40px;
 }
 
 .backgroundPoster {
   z-index: -1;
 
-  --main-height: 85vh;
+  --main-height: 86vh;
 
   width: 100%;
   position: absolute;
