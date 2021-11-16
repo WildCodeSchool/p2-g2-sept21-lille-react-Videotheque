@@ -50,7 +50,7 @@ export default function FicheFilm() {
         setActors(data.cast);
       })
       .catch(() => {
-        console.error('Erreur from API');
+        console.error('Erreur API');
       });
   }, []);
 
@@ -132,7 +132,7 @@ export default function FicheFilm() {
           +
         </button>
         <a href={`https://www.youtube.com/embed/${trailer.key}`}>
-          <div className="buttonTrailer" alt="playTrailer">
+          <div className="buttonTrailer" alt="Trailer">
             <div className="playTriangle" />
           </div>
         </a>
