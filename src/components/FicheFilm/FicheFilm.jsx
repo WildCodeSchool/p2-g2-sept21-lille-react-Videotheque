@@ -50,7 +50,7 @@ export default function FicheFilm() {
         setActors(data.cast);
       })
       .catch(() => {
-        console.error('Erreur API');
+        console.error('Erreur from API');
       });
   }, []);
 
