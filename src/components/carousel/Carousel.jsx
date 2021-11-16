@@ -1,5 +1,5 @@
-import { Slide } from 'react-slideshow-image';
 import { useState, useEffect } from 'react';
+import { Slide } from 'react-slideshow-image';
 import axios from 'axios';
 import './carousel.css';
 
@@ -22,14 +22,6 @@ const Carousel = () => {
       ...properties,
       slidesToShow: window.matchMedia('(min-width: 780px)').matches ? 5 : 1,
     });
-    axios
-      .get(
-        'https://api.themoviedb.org/3/movie/popular?api_key=599ded6f0fc3bcaee1882e83ae0d438a&language=en-US&page=1'
-      )
-
-      .then(({ data }) => {
-        setMoviePics(data.results);
-      });
   }, [window.innerWidth]);
 
   useEffect(() => {

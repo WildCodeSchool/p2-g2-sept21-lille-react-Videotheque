@@ -15,7 +15,7 @@ const Header = () => {
       <nav className="navbar ">
         <div className="logo">
           <Link
-            to="/Home"
+            to="/"
             className="Home"
             style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
@@ -25,7 +25,7 @@ const Header = () => {
         <ul className="navlink">
           <li>
             <Link
-              to="/FicheFilm"
+              to="/Watchlist"
               className="watchpage "
               style={{ color: 'inherit', textDecoration: 'inherit' }}
             >

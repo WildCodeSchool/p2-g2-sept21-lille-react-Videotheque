@@ -39,7 +39,7 @@ body {
 
   .card-container {
     position: relative;
-    margin-left: 55%;
+    left: 8%;
   }
 
   .ball {

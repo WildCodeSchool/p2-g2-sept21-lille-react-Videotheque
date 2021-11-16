@@ -16,7 +16,7 @@
   transform: scale(1.07);
 }
 
-.poster {
+.posterResult {
   height: 330px;
   width: 220px;
   flex-direction: row;
