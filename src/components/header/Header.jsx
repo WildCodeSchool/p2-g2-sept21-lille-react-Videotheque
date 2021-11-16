@@ -6,12 +6,13 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <>
-      <Menu width="40%" className="menu">
-        <ul>
-          <li className=" menu-item">Watchlist</li>
-        </ul>
-      </Menu>
-
+      <div className="menu">
+        <Menu width="40%">
+          <ul>
+            <li className=" menu-item">Watchlist</li>
+          </ul>
+        </Menu>
+      </div>
       <nav className="navbar ">
         <div className="logo">
           <Link

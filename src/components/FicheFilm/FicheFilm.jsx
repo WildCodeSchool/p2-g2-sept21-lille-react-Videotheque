@@ -69,7 +69,7 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setDirector(data.crew[5]);
+        setDirector(data.crew);
         setActors(data.cast);
       })
       .catch(() => {
@@ -139,11 +139,17 @@ export default function FicheFilm() {
               <p className="overview">{overview}</p>
               <div className="director">
                 {typeof director !== 'undefined' ? (
-                  <p>
-                    {director.job} :
-                    <br />
-                    {director.name}
-                  </p>
+                  <>
+                    {director
+                      .filter(
+                        (job) =>
+                          job.job === 'Director' &&
+                          job.department === 'Directing'
+                      )
+                      .map((dir) => {
+                        return <p> Director : {dir.name}</p>;
+                      })}
+                  </>
                 ) : (
                   <p>Director : unknown</p>
                 )}
@@ -173,7 +179,7 @@ export default function FicheFilm() {
           <div className="directorTimeDate">
             <div className="Povide">
               <h3>Rent</h3>
-              {typeof providersRent && (
+              {typeof providersRent !== 'undefined' && (
                 <>
                   {providersRent.map((providerRent) => {
                     return (
@@ -205,7 +211,7 @@ export default function FicheFilm() {
             </div>
             <div className="ProvideType">
               <h3 className>Buy</h3>
-              {providersBuy.length > 0 && (
+              {typeof providersBuy !== 'undefined' && (
                 <>
                   {providersBuy.map((providerBuy) => {
                     return (

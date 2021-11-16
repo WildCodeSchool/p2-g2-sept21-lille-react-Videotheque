@@ -41,3 +41,44 @@
   height: 50px;
   width: 220px;
 }
+
+@media only screen and (max-width: 600px) {
+  .resultCard {
+    height: 190px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    box-shadow: 3px 10px 23px -10px black;
+    text-decoration: none;
+  }
+
+  .posterResult {
+    height: 175px;
+    width: 150px;
+    flex-direction: row;
+  }
+
+  .info {
+    display: flex;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-weight: bolder;
+    color: black;
+    height: 25px;
+    width: 150px;
+    background: #1fe0;
+    overflow: hidden;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 110px;
+  }
+}
