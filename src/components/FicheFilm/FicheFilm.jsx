@@ -2,13 +2,11 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './FicheFilm.css';
 import { useParams } from 'react-router-dom';
-import buttonTrailer from './play.png';
 import star1 from './star1.png';
 import star2 from './star2.png';
 import star3 from './star3.png';
 import star4 from './star4.png';
 import star5 from './star5.png';
-import buttonAdd from './add.png';
 
 export default function FicheFilm() {
   const [title, setTitle] = useState([]);
@@ -86,7 +84,7 @@ export default function FicheFilm() {
   const min = (runtime / 60 - hour) * 60;
 
   return (
-    <div>
+    <div className="filmMainBloc">
       <div className="titreVote">
         <p>{title}</p>
         <p className="vote">
@@ -101,6 +99,13 @@ export default function FicheFilm() {
           src={`https://image.tmdb.org/t/p/original${backdrop}`}
           alt="fond"
         />
+
+        <img
+          className="poster"
+          src={`https://image.tmdb.org/t/p/original${poster}`}
+          alt="trailer"
+        />
+
         <div className="directorTimeDate">
           <p>
             {director.job} :
@@ -112,21 +117,6 @@ export default function FicheFilm() {
             <br /> ({releaseDate})
           </p>
         </div>
-        <div className="buttons">
-          <img className="buttonAdd" src={buttonAdd} alt="addCollection" />
-          <a href={`https://www.youtube.com/embed/${trailer.key}`}>
-            <img
-              className="buttonTrailer"
-              src={buttonTrailer}
-              alt="playTrailer"
-            />
-          </a>
-        </div>
-        <img
-          className="poster"
-          src={`https://image.tmdb.org/t/p/original${poster}`}
-          alt="trailer"
-        />
 
         <div className="genresOverview">
           <div className="genres">
@@ -137,7 +127,16 @@ export default function FicheFilm() {
           <p className="overview">{overview}</p>
         </div>
       </div>
-
+      <div className="buttons">
+        <button type="button" className="buttonAdd">
+          +
+        </button>
+        <a href={`https://www.youtube.com/embed/${trailer.key}`}>
+          <div className="buttonTrailer" alt="playTrailer">
+            <div className="playTriangle" />
+          </div>
+        </a>
+      </div>
       <div className="actors">
         {actors
           .filter((actor) => actor.order < 3)

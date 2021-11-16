@@ -25,7 +25,7 @@ const Header = () => {
         <ul className="navlink">
           <li>
             <Link
-              to="/FicheFilm"
+              to="/Watchlist"
               className="watchpage "
               style={{ color: 'inherit', textDecoration: 'inherit' }}
             >
