@@ -12,7 +12,7 @@ const ResultCard = (movie) => {
       <img className="posterResult" src={poster} alt={`${title} Poster`} />
 
       <div className="info">
-        <h3 className="title">{title}</h3>
+        <h3 className="movietitle">{title}</h3>
       </div>
     </Link>
   );
