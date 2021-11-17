@@ -1,25 +1,46 @@
 import React from 'react';
-import GithubProfile from './githubProfile';
-import GithubMobile from './githubMobile';
+import Credits from './Credits';
+import Team from './Team';
+import SocialMedia from './SocialMedia';
 import './footer.css';
 
 const Footer = () => {
   return (
     <section className="footer">
-      <div className="team">
-        <span className="keepnTeam">KeepN Team</span>
-        <GithubProfile />
-        <GithubMobile />
-      </div>
-      <div>
-        <a href="https://www.wildcodeschool.com/fr-FR" className="wildAndSons">
-          Wild and Sons
-        </a>
-      </div>
-      <div>
-        <a href="https://www.themoviedb.org/" className="creditsLink">
-          Credits
-        </a>
+      <section className="links">
+        <div className="keepnTeam">
+          <ul>
+            <li>Team</li>
+            <li>
+              <Team />
+            </li>
+          </ul>
+        </div>
+        <div className="clientLink">
+          <ul>
+            <li> Wild &amp; Sons</li>
+            <li>
+              <SocialMedia />
+            </li>
+          </ul>
+        </div>
+        <div className="credits">
+          <ul>
+            <li>Credits</li>
+            <li>
+              <Credits />
+            </li>
+          </ul>
+        </div>
+      </section>
+      <div className="legalMentions">
+        <p>
+          Made with <span className="heart">-♥-</span> in 2021
+        </p>
+        <p>
+          For Wild Code School Lille,4 avenue des Saules, Bât le Doge, 59000
+          Lille
+        </p>
       </div>
     </section>
   );
