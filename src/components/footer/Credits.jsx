@@ -7,7 +7,7 @@ const Credits = () => {
         <a href="https://www.themoviedb.org/" target="blank">
           <SiThemoviedatabase />
         </a>
-        <div className="tooltip">The Movie DataBase</div>
+        <div className="toolTip">The Movie DataBase</div>
       </div>
     </div>
   );
