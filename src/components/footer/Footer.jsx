@@ -1,6 +1,6 @@
 import React from 'react';
 import Credits from './Credits';
-import Github from './Github';
+import Team from './Team';
 import SocialMedia from './SocialMedia';
 import './footer.css';
 
@@ -12,7 +12,7 @@ const Footer = () => {
           <ul>
             <li>Team</li>
             <li>
-              <Github />
+              <Team />
             </li>
           </ul>
         </div>
