@@ -37,7 +37,7 @@
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .tooltip {
+.wrapper .toolTip {
   display: visible;
   position: absolute;
   top: 0;
@@ -52,7 +52,7 @@
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .tooltip::before {
+.wrapper .toolTip::before {
   position: absolute;
   content: '';
   height: 8px;
@@ -64,7 +64,7 @@
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .icon:hover .tooltip {
+.wrapper .icon:hover .toolTip {
   top: -45px;
   opacity: 1;
   visibility: visible;
@@ -72,34 +72,34 @@
 }
 
 .wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
+.wrapper .icon:hover .toolTip {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .wrapper .facebook:hover,
-.wrapper .facebook:hover .tooltip,
-.wrapper .facebook:hover .tooltip::before {
+.wrapper .facebook:hover .toolTip,
+.wrapper .facebook:hover .toolTip::before {
   background-color: #3b5998;
   color: #fff;
 }
 
 .wrapper .website:hover,
-.wrapper .website:hover .tooltip,
-.wrapper .website:hover .tooltip::before {
+.wrapper .website:hover .toolTip,
+.wrapper .website:hover .toolTip::before {
   background-color: #f76c6c;
   color: #fff;
 }
 
 .wrapper .credits:hover,
-.wrapper .credits:hover .tooltip,
-.wrapper .credits:hover .tooltip::before {
+.wrapper .credits:hover .toolTip,
+.wrapper .credits:hover .toolTip::before {
   background-color: rgb(30, 213, 169);
   color: #fff;
 }
 
 .wrapper .github:hover,
-.wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
+.wrapper .github:hover .toolTip,
+.wrapper .github:hover .toolTip::before {
   background-color: #333;
   color: #fff;
 }
@@ -115,12 +115,28 @@
     flex-direction: column;
     height: auto;
     width: auto;
-    font-size: 15px;
-    padding-top: 5vw;
-    padding-bottom: 3vw;
+    font-size: 10px;
+    padding-top: 1vw;
+    padding-bottom: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .wrapper .icon {
+    position: relative;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    font-size: 12px;
   }
 
   .legalMentions {
-    display: none;
+    font-size: 10px;
   }
 }
