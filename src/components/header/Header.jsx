@@ -9,11 +9,11 @@ const Header = () => {
       <div className="menu">
         <Menu width="40%">
           <ul>
-            <li className=" menu-item">Watchlist</li>
+            <li className=" menuItem">Watchlist</li>
             <li>
               <Link
                 to="/"
-                className="Home"
+                className="home"
                 style={{ color: 'inherit', textDecoration: 'inherit' }}
               >
                 Home
@@ -22,21 +22,21 @@ const Header = () => {
           </ul>
         </Menu>
       </div>
-      <nav className="navbar ">
+      <nav className="navBar ">
         <div className="logo">
           <Link
             to="/"
-            className="Home"
+            className="home"
             style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
             Keep N
           </Link>
         </div>
-        <ul className="navlink">
+        <ul className="navLink">
           <li>
             <Link
               to="/FicheFilm"
-              className="watchpage "
+              className="watchPage "
               style={{ color: 'inherit', textDecoration: 'inherit' }}
             >
               Watchlist

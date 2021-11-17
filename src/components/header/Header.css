@@ -1,5 +1,5 @@
 /* Removing Navbar on mobile */
-.navbar {
+.navBar {
   display: none;
 }
 
@@ -120,7 +120,7 @@
 
 @media only screen and (min-width: 600px) {
   /* Desktop style */
-  .navbar {
+  .navBar {
     height: 10vh;
     width: 100%;
     background: rgba(196, 196, 196, 0.2);
@@ -145,7 +145,7 @@
     transform: scale(1.03);
   }
 
-  .navlink {
+  .navLink {
     font-family: 'Reem Kufi', sans-serif;
     font-size: 3.5vh;
     line-height: 60px;
