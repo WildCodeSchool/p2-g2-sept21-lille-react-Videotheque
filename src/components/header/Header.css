@@ -1,0 +1,164 @@
+/* Removing Navbar on mobile */
+.navBar {
+  display: none;
+}
+
+/* Burger menu module style */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+.menu {
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 1vh;
+  width: 100%;
+  background-color: #e5e5f7;
+  background-image:
+    linear-gradient(
+      30deg,
+      #f79a22 40%,
+      transparent 12.5%,
+      transparent 87%,
+      #f7bd51 87.5%,
+      #f1bc47
+    ),
+    linear-gradient(
+      150deg,
+      #facc4d 50%,
+      transparent 40%,
+      transparent 87%,
+      #f5a81b 87.5%,
+      #f1bc28
+    ),
+    linear-gradient(
+      30deg,
+      #facc4d 50%,
+      transparent 40%,
+      transparent 87%,
+      #f5a81b 87.5%,
+      #f1bc28
+    ),
+    linear-gradient(
+      50deg,
+      #facc4d 30%,
+      transparent 40%,
+      transparent 87%,
+      #f5a81b 87.5%,
+      #f1bc28
+    ),
+    linear-gradient(
+      60deg,
+      #facc4d 30%,
+      transparent 40%,
+      transparent 75%,
+      #f5a81b 75%,
+      #f1bc28
+    ),
+    linear-gradient(
+      60deg,
+      #f7d067 40%,
+      transparent 25.5%,
+      transparent 75%,
+      #f5a81b 75%,
+      #f1bc28
+    );
+  overflow-x: scroll;
+  background-size: 100vw 1200px;
+  background-attachment: scroll;
+  background-position: cover;
+}
+
+.bm-burger-bars {
+  background: #373a47;
+  border-radius: 9999px;
+}
+
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+.bm-cross {
+  background: #bdc3c7;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+.bm-menu {
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+.bm-item-list {
+  color: #fff;
+  padding: 0.8em;
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+.bm-item {
+  display: inline-block;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (min-width: 600px) {
+  /* Desktop style */
+  .navBar {
+    height: 10vh;
+    width: 100%;
+    background: rgba(196, 196, 196, 0.2);
+    display: flex;
+    align-items: center;
+    flex-flow: row, nowrap;
+    justify-content: space-between;
+
+    /* box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.08); */
+  }
+
+  .logo {
+    font-family: 'Reem Kufi', sans-serif;
+    font-weight: normal;
+    font-size: 8vh;
+    line-height: 135px;
+    color: #000;
+    margin-left: 1vw;
+  }
+
+  .logo:hover {
+    transform: scale(1.03);
+  }
+
+  .navLink {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 3.5vh;
+    line-height: 60px;
+    color: #fff;
+    margin-right: 8vw;
+  }
+
+  /* Removing Burger menu from Desktop  */
+  .bm-burger-button {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+}

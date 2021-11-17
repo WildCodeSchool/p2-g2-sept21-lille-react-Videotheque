@@ -1,3 +1,4 @@
+
 .footer .links {
   display: flex;
   flex-direction: row;
@@ -137,5 +138,6 @@
 
   .legalMentions {
     font-size: 10px;
+
   }
 }

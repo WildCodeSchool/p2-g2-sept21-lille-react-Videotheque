@@ -1,11 +1,14 @@
 import React from 'react';
+
 import Credits from './Credits';
 import Team from './Team';
 import SocialMedia from './SocialMedia';
+
 import './footer.css';
 
 const Footer = () => {
   return (
+
     <section className="footer">
       <section className="links">
         <div className="keepnTeam">
@@ -43,6 +46,8 @@ const Footer = () => {
         </p>
       </div>
     </section>
+
+ 
   );
 };
 
