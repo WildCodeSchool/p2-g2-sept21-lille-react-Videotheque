@@ -1,5 +1,5 @@
 import { ImFacebook } from 'react-icons/im';
-import { RiHomeHeartLine } from 'react-icons/ri';
+import { RiEarthFill } from 'react-icons/ri';
 
 const SocialMedia = () => {
   return (
@@ -8,13 +8,13 @@ const SocialMedia = () => {
         <a href="https://www.facebook.com/WildCodeSchool/" target="blank">
           <ImFacebook />
         </a>
-        <div className="tooltip">Facebook</div>
+        <div className="toolTip">Facebook</div>
       </div>
       <div className="icon website">
         <a href="https://www.wildcodeschool.com/fr-FR" target="blank">
-          <RiHomeHeartLine />
+          <RiEarthFill />
         </a>
-        <div className="tooltip">WebSite</div>
+        <div className="toolTip">WebSite</div>
       </div>
     </div>
   );
