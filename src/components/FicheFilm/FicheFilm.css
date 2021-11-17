@@ -1,8 +1,4 @@
 
-body {
-  background-color: goldenrod;
-}
-
 body > div {
   font-family: 'Reem Kufi', sans-serif;
 }
@@ -36,7 +32,7 @@ img {
   box-shadow: inset 0 2px 50px 13px #000;
 }
 
-.titreVote {
+.titleVote {
   font-size: 43px;
   display: flex;
   justify-content: space-between;
@@ -221,7 +217,7 @@ img {
       height: 22px;
     }
 
-    .titreVote {
+    .titleVote {
       display: flex;
       flex-direction: column;
       font-size: 35px;
