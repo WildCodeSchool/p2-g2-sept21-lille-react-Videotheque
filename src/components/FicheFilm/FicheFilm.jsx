@@ -23,6 +23,7 @@ export default function FicheFilm() {
   const [genres, setGenres] = useState([]);
   const { id } = useParams();
   const [watchlist, setWatchlist] = useState([]);
+
   useEffect(() => {
     axios
       .get(
@@ -68,6 +69,7 @@ export default function FicheFilm() {
       });
   }, []);
 
+
   useEffect(() => {
     const newList = JSON.parse(localStorage.getItem('watchlist'));
     if (newList) setWatchlist(newList);
@@ -90,6 +92,20 @@ export default function FicheFilm() {
     setWatchlist(newWList);
   };
 
+  let UsersScorePictures;
+  if (voteAverages === 10) {
+    UsersScorePictures = star5;
+  } else if (voteAverages < 10 && voteAverages >= 8) {
+    UsersScorePictures = star4;
+  } else if (voteAverages < 8 && voteAverages >= 6) {
+    UsersScorePictures = star3;
+  } else if (voteAverages < 6 && voteAverages >= 4) {
+    UsersScorePictures = star2;
+  } else if (voteAverages < 4) {
+    UsersScorePictures = star1;
+  }
+
+
   useEffect(() => {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
   }, [watchlist]);
@@ -111,25 +127,27 @@ export default function FicheFilm() {
   const min = (runtime / 60 - hour) * 60;
 
   return (
-    <div className="filmMainBloc">
-      <div className="titreVote">
-        <p>{title}</p>
+
+    <div className="movieMainBloc">
+      <div className="titleVote">
+        <p>{titles}</p>
         <p className="vote">
-          <img className="starScore" src={UsersScorePictures} alt="StarScore" />
+          <img className="starScore" src={UsersScorePictures} alt="starScore" />
           <br />
-          <div className="numberVote">{numberVote} votes</div>
+          <div className="numberVote">{numberVotes} votes</div>
+
         </p>
       </div>
       <div className="posterTrailer">
         <img
           className="backgroundPoster"
-          src={`https://image.tmdb.org/t/p/original${backdrop}`}
-          alt="fond"
+          src={`https://image.tmdb.org/t/p/original${backdrops}`}
+          alt="banner"
         />
 
         <img
           className="poster"
-          src={`https://image.tmdb.org/t/p/original${poster}`}
+          src={`https://image.tmdb.org/t/p/original${posters}`}
           alt="trailer"
         />
 
@@ -141,7 +159,7 @@ export default function FicheFilm() {
           </p>
           <p>
             {hour} H {min}
-            <br /> ({releaseDate})
+            <br /> ({releaseDates})
           </p>
         </div>
 
@@ -168,10 +186,13 @@ export default function FicheFilm() {
 
         <a href={`https://www.youtube.com/embed/${trailer.key}`}>
           <div className="buttonTrailer" alt="Trailer">
+
+
             <div className="playTriangle" />
           </div>
         </a>
       </div>
+      
       <div className="actors">
         {actors
           .filter((actor) => actor.order < 3)
