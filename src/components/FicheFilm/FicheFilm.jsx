@@ -9,34 +9,35 @@ import star4 from './star4.png';
 import star5 from './star5.png';
 
 export default function FicheFilm() {
-  const [title, setTitle] = useState([]);
-  const [voteAverage, setVoteAverage] = useState([]);
-  const [numberVote, setNumberVote] = useState([]);
-  const [poster, setPoster] = useState([]);
-  const [backdrop, setBackdrop] = useState([]);
-  const [director, setDirector] = useState([]);
-  const [trailer, setTrailer] = useState([]);
-  const [overview, setOverview] = useState([]);
-  const [runtime, setRuntime] = useState([]);
-  const [releaseDate, setReleaseDate] = useState([]);
+  const [titles, setTitles] = useState([]);
+  const [voteAverages, setVoteAverages] = useState([]);
+  const [numberVotes, setNumberVotes] = useState([]);
+  const [posters, setPosters] = useState([]);
+  const [backdrops, setBackdrops] = useState([]);
+  const [directors, setDirectors] = useState([]);
+  const [trailers, setTrailers] = useState([]);
+  const [overviews, setOverviews] = useState([]);
+  const [runtimes, setRuntimes] = useState([]);
+  const [releaseDates, setReleaseDates] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [providersFlatrate, setProvidersFlatrate] = useState([]);
+  const [providersFlatrates, setProvidersFlatrates] = useState([]);
   const { id } = useParams();
+
   useEffect(() => {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setTitle(data.original_title);
-        setVoteAverage(data.vote_average);
-        setNumberVote(data.vote_count);
-        setPoster(data.poster_path);
-        setBackdrop(data.backdrop_path);
-        setOverview(data.overview);
-        setRuntime(data.runtime);
-        setReleaseDate(data.release_date);
+        setTitles(data.original_title);
+        setVoteAverages(data.vote_average);
+        setNumberVotes(data.vote_count);
+        setPosters(data.poster_path);
+        setBackdrops(data.backdrop_path);
+        setOverviews(data.overview);
+        setRuntimes(data.runtime);
+        setReleaseDates(data.release_date);
         setGenres(data.genres);
       });
   }, []);
@@ -47,11 +48,11 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setDirector(data.crew);
+        setDirectors(data.crew);
         setActors(data.cast);
       })
       .catch(() => {
-        setDirector(['']);
+        setDirectors(['']);
         setActors(['']);
       });
   }, []);
@@ -62,10 +63,10 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setTrailer(data.results[0]);
+        setTrailers(data.results[0]);
       })
       .catch(() => {
-        setTrailer([]);
+        setTrailers([]);
       });
   }, []);
 
@@ -76,63 +77,67 @@ export default function FicheFilm() {
       )
 
       .then(({ data }) => {
-        setProvidersFlatrate(data.results.FR.flatrate);
+        setProvidersFlatrates(data.results.FR.flatrate);
       })
       .catch(() => {
-        setProvidersFlatrate([]);
+        setProvidersFlatrates([]);
       });
   }, []);
 
   let UsersScorePictures;
-  if (voteAverage === 10) {
+  if (voteAverages === 10) {
     UsersScorePictures = star5;
-  } else if (voteAverage < 10 && voteAverage >= 8) {
+  } else if (voteAverages < 10 && voteAverages >= 8) {
     UsersScorePictures = star4;
-  } else if (voteAverage < 8 && voteAverage >= 6) {
+  } else if (voteAverages < 8 && voteAverages >= 6) {
     UsersScorePictures = star3;
-  } else if (voteAverage < 6 && voteAverage >= 4) {
+  } else if (voteAverages < 6 && voteAverages >= 4) {
     UsersScorePictures = star2;
-  } else if (voteAverage < 4) {
+  } else if (voteAverages < 4) {
     UsersScorePictures = star1;
   }
 
   const Runtime = () => {
-    if (runtime > 59) {
-      const hour = (runtime - (runtime % 60)) / 60;
-      const min = Math.round((runtime / 60 - hour) * 60 * 100) / 100;
+    if (runtimes > 59) {
+      const hour = (runtimes - (runtimes % 60)) / 60;
+      const min = Math.round((runtimes / 60 - hour) * 60 * 100) / 100;
       return `${hour} H ${min} `;
     }
 
-    return `${runtime} min`;
+    return `${runtimes} min`;
   };
 
+  const actorPoster = actors.profile_path
+    ? `https://image.tmdb.org/t/p/original${actors.profile_path}`
+    : `https://via.placeholder.com/220x330/FFFFFF/000000/?text={actor.name}`;
+
   return (
-    <div className="filmMainBloc">
-      <div className="titreVote">
-        <p>{title}</p>
+    <div className="movieMainBloc">
+      <div className="titleVote">
+        <p>{titles}</p>
         <p className="vote">
           <img className="starScore" src={UsersScorePictures} alt="StarScore" />
           <br />
-          <div className="numberVote">{numberVote} votes</div>
+          <div className="numberVote">{numberVotes} votes</div>
         </p>
       </div>
       <div className="posterTrailer">
         <img
           className="backgroundPoster"
-          src={`https://image.tmdb.org/t/p/original${backdrop}`}
+          src={`https://image.tmdb.org/t/p/original${backdrops}`}
           alt="fond"
         />
 
         <img
           className="poster"
-          src={`https://image.tmdb.org/t/p/original${poster}`}
+          src={`https://image.tmdb.org/t/p/original${posters}`}
           alt="trailer"
         />
 
         <div className="directorTimeDate">
-          {typeof director !== 'undefined' ? (
+          {typeof directors !== 'undefined' ? (
             <>
-              {director
+              {directors
                 .filter(
                   (job) =>
                     job.job === 'Director' && job.department === 'Directing'
@@ -145,7 +150,7 @@ export default function FicheFilm() {
             <p>Director : unknown</p>
           )}
           <p>{Runtime()}</p>
-          <p>({releaseDate})</p>
+          <p>({releaseDates})</p>
         </div>
 
         <div className="genresOverview">
@@ -154,16 +159,16 @@ export default function FicheFilm() {
               return <p>{genre.name}</p>;
             })}
           </div>
-          <p className="overview">{overview}</p>
+          <p className="overview">{overviews}</p>
         </div>
-        <div className="Provide">
+        <div className="provider">
           <h3>Streaming</h3>
           {typeof providersFlatrate !== 'undefined' && (
             <>
-              {providersFlatrate.map((providerFlatrate) => {
+              {providersFlatrates.map((providerFlatrate) => {
                 return (
                   <img
-                    className="PovIco"
+                    className="provIco"
                     src={`https://image.tmdb.org/t/p/original${providerFlatrate.logo_path}`}
                     alt="{provider.provider_name}"
                   />
@@ -173,29 +178,26 @@ export default function FicheFilm() {
           )}
         </div>
       </div>
-      {typeof trailer !== 'undefined' && (
-        <div className="buttons">
-          <button type="button" className="buttonAdd">
-            +
-          </button>
+      <div className="buttons">
+        <button type="button" className="buttonAdd">
+          +
+        </button>
 
-          <a href={`https://www.youtube.com/embed/${trailer.key}`}>
+        {typeof trailers !== 'undefined' && (
+          <a href={`https://www.youtube.com/embed/${trailers.key}`}>
             <div className="buttonTrailer" alt="Trailer">
               <div className="playTriangle" />
             </div>
           </a>
-        </div>
-      )}
+        )}
+      </div>
       <div className="actors">
         {actors
           .filter((actor) => actor.order < 3)
           .map((actor) => {
             return (
               <div>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-                  alt="actor"
-                />
+                <img src={actorPoster} alt="actor" />
                 <p>
                   <span>{actor.name}</span>
                   <br />
