@@ -1,31 +1,33 @@
+body {
+  background-color: goldenrod;
+}
 
 body > div {
   font-family: 'Reem Kufi', sans-serif;
 }
 
 img {
-  width: 425px;
-  height: 518px;
+  height: 650px;
 }
 
 .posterTrailer {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 40px;
+  align-items: center;
+  margin-top: 41px;
   margin-bottom: 40px;
-}
-
-.poster {
-  margin-left: 90px;
-  margin-right: 40px;
 }
 
 .backgroundPoster {
   z-index: -1;
+
+  --main-height: 86vh;
+
   width: 100%;
-  height: 518px;
   position: absolute;
-  opacity: 0.5;
+  filter: grayscale(100%) blur(1px) opacity(80%) brightness(80%);
+  object-fit: cover;
+  object-position: center;
 }
 
 .backgroundPoster > img {
@@ -33,36 +35,13 @@ img {
   box-shadow: inset 0 2px 50px 13px #000;
 }
 
-.buttonAdd {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  margin-right: -60px;
-}
-
-.buttonTrailer {
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  margin-top: 330px;
-  margin-right: 5px;
-}
-
-.overview {
-  font-size: 25px;
-  text-align: left;
-  margin-top: 10px;
-  margin-right: 30%;
-  width: 60%;
-}
-
 .titreVote {
   font-size: 43px;
   display: flex;
   justify-content: space-between;
-  margin-left: 55px;
+  margin-left: 56px;
   margin-right: 55px;
-  margin-top: 20px;
+  margin-top: 10vh;
   align-items: center;
 }
 
@@ -70,40 +49,44 @@ img {
   font-size: 25px;
   display: flex;
   flex-direction: column;
-  margin-left: 55px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 240, 0.247);
+  height: 69vh;
+  margin-top: 2%;
 }
 
 .genres {
   display: flex;
   flex-direction: row;
+  margin-bottom: 7vh;
 }
 
 .genres > p {
-  padding-top: 120px;
-  padding-right: 20px;
-  font-weight: bold;
+  padding-right: 10px;
 }
 
 .directorTimeDate {
   font-size: 25px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding-left: 100px;
+  align-items: center;
   width: 100%;
+  background-color: rgba(255, 255, 240, 0.247);
+  order: -1;
 }
 
 .directorTimeDate > p {
+  padding-right: 10px;
   width: 200px;
-  padding-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .actors {
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-top: 25vh;
 }
 
 .actors > div img {
@@ -121,9 +104,27 @@ img {
 .actors > div p {
   font-size: 17px;
   background: #000;
-  background: -moz-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
-  background: -webkit-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
-  background: linear-gradient(to bottom, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
+  background:
+    -moz-linear-gradient(
+      top,
+      rgb(0, 0, 0, 0.5) 0%,
+      #eee8ec 20%,
+      #fff 100%
+    );
+  background:
+    -webkit-linear-gradient(
+      top,
+      rgb(0, 0, 0, 0.5) 0%,
+      #eee8ec 20%,
+      #fff 100%
+    );
+  background:
+    linear-gradient(
+      to bottom,
+      rgb(0, 0, 0, 0.5) 0%,
+      #eee8ec 20%,
+      #fff 100%
+    );
   border-right: 1px solid #000;
   border-left: 1px solid #000;
   border-bottom: 1px solid #000;
@@ -159,147 +160,242 @@ img {
   margin-top: 5px;
 }
 
+.PovIco {
+  height: 3.5vh;
+  margin: 0.5vw 0.5vw 0.5vw 0;
+}
+
+.Provide {
+  display: flex;
+  flex-direction: column;
+  height: 15vh;
+}
+
 @media screen and (max-width: 1920px) {
   .poster {
-    margin-left: 90px;
     margin-right: 5px;
   }
 
-  .buttonTrailer {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin-right: -59px;
-  }
-
-  .buttonAdd {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    margin-right: -59px;
-    margin-top: 360px;
-  }
-}
-
-@media screen and (max-width: 390px) {
-  .titreVote {
-    font-size: 22px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .posterTrailer {
+  .directorTimeDate {
+    font-size: 25px;
     display: flex;
-    margin-top: 30px;
-    margin-bottom: 30px;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 240, 0.247);
+    order: -1;
   }
 
-  .posterTrailer > img {
-    margin-bottom: 25px;
-    margin-left: 25%;
-    width: 48%;
-    height: 48%;
-  }
-
-  .backgroundPoster {
-    display: none;
+  .overview {
+    font-size: 25px;
+    text-align: left;
+    overflow-y: auto;
+    width: 38vw;
   }
 
   .buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    padding-right: 60px;
-  }
-
-  .buttonTrailer {
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    position: absolute;
+    bottom: 39%;
+    left: 23%;
   }
 
   .buttonAdd {
-    width: 60px;
-    height: 60px;
+    margin: 0;
+    margin-left: 30%;
+    width: 5em;
+    height: 5em;
+    background-color: rgba(0, 0, 0, 0.25);
     cursor: pointer;
-    margin-top: 40px;
+    border-radius: 50px;
+    position: absolute;
+    left: 100%;
   }
 
-  .vote {
-    font-size: 18px;
+  .buttonTrailer {
+    margin: 0;
+    margin-left: 30%;
+    width: 4em;
+    height: 4em;
+    background-color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    border-radius: 50px;
+    position: relative;
+    border: 1px solid white;
+    right: 20%;
   }
 
-  .directorTimeDate {
-    font-size: 20px;
-    margin-top: 5px;
-    text-align: center;
-    display: flex;
+  .playTriangle {
+    margin: 0 auto;
+    top: 20%;
+    right: 20%;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 1.2em 0 1.2em 2em;
+    border-color: transparent transparent transparent #000;
+    opacity: 0.75;
+  }
+
+  .buttonTrailer:hover .playTriangle:hover {
+    opacity: 1;
+  }
+
+  .PovIco {
+    height: 3.5vh;
+    margin: 0.5vw 0.5vw 0.5vw 0;
+  }
+
+  .provide {
+    display: none;
     flex-direction: column;
+    height: 15vh;
   }
 
-  .directorTimeDate > p {
-    margin-left: -50%;
-    padding-right: 10px;
-    padding-bottom: 20px;
-    width: 200px;
-  }
+  @media screen and (max-width: 768px) {
+    .starScore {
+      width: 120px;
+      height: 22px;
+    }
 
-  .genresOverview {
-    font-size: 25px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 55px;
-    margin-bottom: 30px;
-  }
+    .titreVote {
+      display: flex;
+      flex-direction: column;
+      font-size: 35px;
+      margin-top: 10vh;
+      margin-bottom: 0;
+    }
 
-  .genres {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: -40px;
-  }
+    .directorTimeDate {
+      font-size: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      background-color: rgba(255, 255, 240, 0.247);
+      margin-bottom: 30%;
+      order: 1;
+      text-align: center;
+      margin-top: 0;
+    }
 
-  .genres > p {
-    padding-right: 25px;
-    padding-top: 10px;
-  }
+    .posterTrailer {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+    }
 
-  .overview {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-left: 20px;
-    text-align: left;
-    width: 70%;
-  }
+    .posterTrailer > img {
+      margin-bottom: 25px;
+      width: 59%;
+      height: 59%;
+      box-shadow: 20px 10px 23px -10px rgba(0, 0, 0, 0.384);
+    }
 
-  .actors {
-    flex-direction: column;
-  }
+    .backgroundPoster {
+      z-index: -1;
+      display: none;
+    }
 
-  .actors > div p {
-    margin-left: 88px;
-    width: 193px;
-  }
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      top: 21%;
+    }
 
-  .actors > div img {
-    width: 193px;
-    height: 241px;
-  }
+    .buttonAdd {
+      margin: 0;
+      margin-left: 30%;
+      width: 5em;
+      height: 5em;
+      background-color: rgba(0, 0, 0, 0.25);
+      cursor: pointer;
+      border-radius: 50px;
+      position: absolute;
+      top: 6.5%;
+    }
 
-  .actors > div {
-    margin: 2px;
-  }
+    .buttonTrailer {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      margin-top: 40px;
+      margin-bottom: 40px;
+      top: 3%;
+    }
 
-  .starScore {
-    width: 87px;
-    height: 16px;
-  }
+    .playTriangle {
+      margin: 0 auto;
+      top: 18%;
+      right: 18%;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 1.3em 0 1.3em 2em;
+      border-color: transparent transparent transparent #000;
+      opacity: 0.75;
+    }
 
-  .numberVote {
-    font-size: 12px;
+    .buttonTrailer:hover .playTriangle:hover {
+      opacity: 1;
+    }
+
+    .vote {
+      font-size: 18px;
+    }
+
+    .directorTimeDate > p {
+      padding-right: 10px;
+      padding-bottom: 20px;
+    }
+
+    .genresOverview {
+      display: flex;
+      flex-flow: column wrap;
+      font-size: 25px;
+      margin-bottom: 30px;
+      overflow-y: auto;
+      width: 100vw;
+    }
+
+    .genres {
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+      margin-bottom: 30%;
+    }
+
+    .genres > p {
+      padding-right: 25px;
+      padding-top: 10px;
+    }
+
+    .overview {
+      width: 100vw;
+      font-size: 20px;
+      overflow-y: auto;
+    }
+
+    .actors {
+      flex-direction: column;
+      margin-top: 0;
+    }
+
+    .actors > div p {
+      margin-left: 88px;
+      width: 193px;
+    }
+
+    .actors > div img {
+      width: 193px;
+      height: 241px;
+    }
+
+    .actors > div {
+      margin: 2px;
+    }
   }
 }
