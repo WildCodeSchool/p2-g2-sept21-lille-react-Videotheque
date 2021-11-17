@@ -1,14 +1,18 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
+import Eye from '../eye/Eye';
+import FilterButton from '../filterButton/FilterButton';
+
 import ResultCard from '../ResultCard/ResultCard';
 import './Search.css';
 
-const Search = () => {
+const SearchBar = () => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
   const onChange = (e) => {
     e.preventDefault();
+
     setQuery(e.target.value);
     Axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=599ded6f0fc3bcaee1882e83ae0d438a&language=en-US&page=1&include_adult=false&query=${e.target.value}`
@@ -31,6 +35,10 @@ const Search = () => {
           onChange={onChange}
         />
       </div>
+
+      <FilterButton />
+      <Eye />
+
       {results.length > 0 && (
         <ul className="results">
           {results.map((movie) => (
@@ -40,9 +48,8 @@ const Search = () => {
           ))}
         </ul>
       )}
-      ;
     </>
   );
 };
 
-export default Search;
+export default SearchBar;

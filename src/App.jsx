@@ -12,7 +12,7 @@ function App() {
     <div className="main">
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact>
+          <Route path="/">
             <Header />
             <Carousel />
             <SearchBar />
