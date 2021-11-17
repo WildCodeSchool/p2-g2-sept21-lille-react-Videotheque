@@ -1,0 +1,47 @@
+.watchCard {
+  width: 50vw;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.watchImg {
+  z-index: 0;
+  width: 50vw;
+  height: 400px;
+  overflow: hidden;
+  filter: blur(0) opacity(100%) brightness(100%);
+  object-fit: cover;
+  object-position: center;
+}
+
+.watchImg:hover {
+  z-index: -40;
+  opacity: 0.5;
+}
+
+.movieTitle {
+  z-index: -1;
+  text-align: center;
+  left: 10%;
+  font-size: 50px;
+  margin-top: 10%;
+  position: absolute;
+  color: black;
+}
+
+.ticket img {
+  height: 120px;
+}
+
+.buttonRemove {
+  margin: 0;
+  margin-left: 30%;
+  width: 5em;
+  height: 5em;
+  background-color: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border-radius: 50px;
+  position: absolute;
+}
