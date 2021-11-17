@@ -5,7 +5,6 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Watchlist from './components/watchlist/Watchlist';
 import './App.css';
-
 import FicheFilm from './components/FicheFilm/FicheFilm';
 
 function App() {

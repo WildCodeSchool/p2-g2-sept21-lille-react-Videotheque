@@ -1,34 +1,51 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import WatchCard from './WatchCard';
-import WatchlistContext from './contexts/WatchlistContext';
 import './watchlist.css';
-// Le but est à partir du bouton "+", faire un push dans le tableau vide > STOCKER LA DONNEE
-// donc faire un setMyWatchlist() au clic
-// myWatchlist.push(LE.film);
 
-const Watchlist = () => {
-  const [moviesTest, setMoviesTest] = useState([]);
+export default function Watchlist() {
+  const [watchlist, setWatchlist] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    const newList = JSON.parse(localStorage.getItem('watchlist'));
+    if (newList) setWatchlist(newList);
+  }, []);
 
-  function deleteMovie(id) {
-    const filteredMovies = moviesTest.filter(
-      (movieTest) => movieTest.id !== id
-    );
-    setMoviesTest(filteredMovies);
-  }
+  const deleteFromWatchlist = () => {
+    const myNewWatchList = watchlist.filter((movie) => {
+      return movie.Id !== id;
+    });
+    setWatchlist(myNewWatchList);
+  };
 
   return (
-    <WatchlistContext.Provider
-      value={{
-        moviesTest,
-        setMoviesTest,
-        deleteMovie,
-      }}
-    >
-      <div className="Watchlist">
-        <WatchCard />
-      </div>
-    </WatchlistContext.Provider>
-  );
-};
+    <section>
+      {watchlist.map((movie) => {
+        return (
+          <>
+            <Link to={`/FicheFilm/${movie.Id}`}>
+              <div className="WatchCard">
+                <p className="movieTitle">{movie.Title}</p>
+                <img
+                  className="watchImg"
+                  src={movie.PosterPath}
+                  alt="Watchlist Movie Poster"
+                />
+              </div>
+            </Link>
+            <button
+              type="button"
+              onClick={deleteFromWatchlist}
+              className="buttonRemove"
+            >
+              <span className="buttonText+or-">Removie!</span>
+            </button>
+            <WatchCard />
+          </>
+        );
+      })}
 
-export default Watchlist;
+      {!watchlist.length && <p className="noMovies">No movies added!</p>}
+    </section>
+  );
+}
