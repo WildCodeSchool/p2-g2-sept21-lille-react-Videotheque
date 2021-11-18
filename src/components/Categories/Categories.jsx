@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ResultCard from '../ResultCard/ResultCard';
 import './Categories.css';
 
 export default function Categories() {
@@ -8,6 +8,16 @@ export default function Categories() {
   const [movies, setMovies] = useState([]);
   const [genresIds, SetGenresIds] = useState([]);
   const randomYear = Math.floor(Math.random() * (2021 - 1980 + 1)) + 1980;
+
+  const mov = () => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/discover/movie?api_key=599ded6f0fc3bcaee1882e83ae0d438a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&year=${randomYear}&with_watch_monetization_types=flatrate`
+      )
+      .then(({ data }) => {
+        setMovies(data.results);
+      });
+  };
 
   useEffect(() => {
     axios
@@ -32,7 +42,7 @@ export default function Categories() {
 
   return (
     <div>
-      <div>
+      <div className="categoriesContenair">
         {categories.map((category) => {
           return (
             <button
@@ -46,6 +56,11 @@ export default function Categories() {
           );
         })}
       </div>
+      <div className="random">
+        <button className="select" type="button" onClick={mov}>
+          Change the selection
+        </button>
+      </div>
       <div className="moviesCategories">
         {movies
           .filter(
@@ -58,13 +73,9 @@ export default function Categories() {
           )
           .map((movie) => {
             return (
-              <Link to={`/FicheFilm/${movie.id}`} className="titleMovie">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt="posterCategories"
-                />
-                <p>{movie.title}</p>
-              </Link>
+              <li key={movie.id}>
+                <ResultCard {...movie} />
+              </li>
             );
           })}
       </div>
