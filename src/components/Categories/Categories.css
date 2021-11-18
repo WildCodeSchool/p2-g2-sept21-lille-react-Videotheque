@@ -8,11 +8,9 @@ body > div {
   margin-top: 70px;
   border: 2px solid black;
   width: 40%;
-  margin: auto;
   padding-top: 24px;
   padding-bottom: 24px;
   margin-bottom: 70px;
-  margin-top: 70px;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.4);
   -webkit-box-shadow: 0 5px 15px 1px #8f742c;
@@ -41,9 +39,27 @@ img {
 
 .titleMovie > p {
   background: #000;
-  background: -moz-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
-  background: -webkit-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
-  background: linear-gradient(to bottom, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
+  background:
+    -moz-linear-gradient(
+      top,
+      rgb(0, 0, 0, 0.5) 0%,
+      #eee8ec 20%,
+      #fff 100%
+    );
+  background:
+    -webkit-linear-gradient(
+      top,
+      rgb(0, 0, 0, 0.5) 0%,
+      #eee8ec 20%,
+      #fff 100%
+    );
+  background:
+    linear-gradient(
+      to bottom,
+      rgb(0, 0, 0, 0.5) 0%,
+      #eee8ec 20%,
+      #fff 100%
+    );
   border-right: 1px solid #000;
   border-left: 1px solid #000;
   border-bottom: 1px solid #000;

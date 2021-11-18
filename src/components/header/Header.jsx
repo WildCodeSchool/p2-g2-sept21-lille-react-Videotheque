@@ -9,7 +9,14 @@ const Header = () => {
       <div className="menu">
         <Menu width="40%">
           <ul>
-            <li className=" menuItem">Watchlist</li>
+            <li>
+              <Link
+                to="/Watchlist"
+                className="watchpage "
+                style={{ color: 'inherit', textDecoration: 'inherit' }}
+              />
+              Watchlist
+            </li>
             <li>
               <Link
                 to="/"
@@ -35,8 +42,8 @@ const Header = () => {
         <ul className="navLink">
           <li>
             <Link
-              to="/FicheFilm"
-              className="watchPage "
+              to="/Watchlist"
+              className="watchpage "
               style={{ color: 'inherit', textDecoration: 'inherit' }}
             >
               Watchlist
