@@ -100,7 +100,7 @@ export default function FicheFilm() {
   const Runtime = () => {
     if (runtimes > 59) {
       const hour = (runtimes - (runtimes % 60)) / 60;
-      const min = Math.round((runtimes / 60 - hour) * 60 * 100) / 100;
+      const min = Math.round(((runtimes % 60) - hour) * 60 * 100) / 100;
       return `${hour} H ${min} `;
     }
 
