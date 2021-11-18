@@ -257,7 +257,7 @@ img {
       height: 22px;
     }
 
-    .titreVote {
+    .titleVote {
       display: flex;
       flex-direction: column;
       font-size: 35px;
