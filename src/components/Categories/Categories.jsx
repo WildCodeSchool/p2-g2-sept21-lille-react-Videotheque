@@ -31,15 +31,15 @@ export default function Categories() {
   return (
     <div>
       <div>
-        {categories.map((categorie) => {
+        {categories.map((category) => {
           return (
             <button
               className="categories"
               type="button"
-              value={categorie.id}
-              onClick={() => SetGenresIds(categorie.id)}
+              value={category.id}
+              onClick={() => SetGenresIds(category.id)}
             >
-              {categorie.name}
+              {category.name}
             </button>
           );
         })}
