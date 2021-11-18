@@ -5,7 +5,7 @@ const Team = () => {
   return (
     <div className="wrapper">
       <div className="icon github">
-        <Link to="./AboutUs" className="linkAboutUs" target="blank">
+        <Link to="/AboutUs" className="linkAboutUs" target="blank">
           <RiTeamFill />
         </Link>
         <div className="toolTip">About Us</div>
