@@ -41,12 +41,6 @@
     font-size: 18px;
   }
 
-  .results li {
-    list-style: none;
-    height: 190px;
-    width: 150px;
-  }
-
   .results {
     padding: 0;
     margin: 0;
