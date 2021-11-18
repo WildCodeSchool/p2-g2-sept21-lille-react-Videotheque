@@ -1,47 +1,193 @@
-.watchCard {
-  width: 50vw;
-  height: 400px;
+.watchContainer {
+  margin-top: 3%;
   display: flex;
   justify-content: center;
+}
+
+.myWatchlist {
+  font-size: 55px;
   text-align: center;
+  margin-top: 3vh;
+  margin-bottom: 6vh;
+}
+
+.movieCard {
+  margin-bottom: 20px;
+  width: 79%;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.178);
+}
+
+.watchCard {
+  position: relative;
+  width: 50vw;
+  height: 300px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.56) 0 22px 70px 4px;
+  transition: 0.4s ease-out;
+}
+
+.watchCard:hover {
+  transform: translateY(-15px);
+  opacity: 0.7;
 }
 
 .watchImg {
-  z-index: 0;
-  width: 50vw;
-  height: 400px;
-  overflow: hidden;
+  position: absolute;
+  width: 55vw;
+  height: auto;
   filter: blur(0) opacity(100%) brightness(100%);
   object-fit: cover;
   object-position: center;
 }
 
-.watchImg:hover {
-  z-index: -40;
-  opacity: 0.5;
+.titleFrame {
+  z-index: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 50vw;
+  height: 300px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(222, 222, 222, 0.11106449415703779) 57%, rgba(255, 255, 255, 0) 100%);
 }
 
 .movieTitle {
-  z-index: -1;
-  text-align: center;
-  left: 10%;
   font-size: 50px;
-  margin-top: 10%;
-  position: absolute;
-  color: black;
+  color: rgba(224, 205, 26, 0.938);
+  margin-bottom: 5%;
+  text-shadow:
+    2px 4px 4px rgba(0, 0, 0, 0.2),
+    0 -5px 10px rgba(255, 255, 255, 0.15);
+}
+
+.ticketAndRemove {
+  margin-bottom: 30px;
+  width: 35%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.openAndClosedTicket {
+  width: 130px;
 }
 
 .ticket img {
-  height: 120px;
+  height: 80px;
+  background: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0 solid transparent;
+  text-shadow: 0 0 0 transparent;
+}
+
+.watchBloc button {
+  background: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0 solid transparent;
+  text-shadow: 0 0 0 transparent;
+}
+
+.ticketAndRemove:hover {
+  background: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0 solid transparent;
+  text-shadow: 0 0 0 transparent;
+}
+
+.ticket:active {
+  background: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0 solid transparent;
+  text-shadow: 0 0 0 transparent;
+}
+
+.ticket:focus {
+  outline: 0;
 }
 
 .buttonRemove {
   margin: 0;
-  margin-left: 30%;
   width: 5em;
   height: 5em;
   background-color: rgba(0, 0, 0, 0.25);
   cursor: pointer;
   border-radius: 50px;
-  position: absolute;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .movieCard {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0.096);
+  }
+
+  .watchCard {
+    position: relative;
+    width: 90vw;
+    height: 300px;
+    box-shadow: rgba(0, 0, 0, 0) 0 0 0 0;
+    transition: 0.4s ease-out;
+  }
+
+  .watchCard:hover {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .watchImg {
+    position: absolute;
+    width: 60vw;
+    height: 300px;
+    filter: blur(0) opacity(100%) brightness(100%);
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .titleFrame {
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 55vw;
+    height: 300px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(222, 222, 222, 0.11106449415703779) 57%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .movieTitle {
+    text-align: center;
+    width: 60vw;
+    font-size: 5vh;
+    color: rgba(224, 205, 26, 0.938);
+    margin-bottom: 5%;
+    text-shadow:
+      2px 4px 4px rgba(0, 0, 0, 0.2),
+      0 -5px 10px rgba(255, 255, 255, 0.15);
+  }
+
+  .watchlist {
+    margin-top: 15vh;
+  }
+
+  .ticketAndRemove {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ticket img {
+    margin-left: 18%;
+    height: 60px;
+  }
 }
