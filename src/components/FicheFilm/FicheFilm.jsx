@@ -9,7 +9,6 @@ import star3 from './star3.png';
 import star4 from './star4.png';
 import star5 from './star5.png';
 
-
 export default function FicheFilm() {
   const [titles, setTitles] = useState([]);
   const [voteAverages, setVoteAverages] = useState([]);
@@ -27,13 +26,10 @@ export default function FicheFilm() {
   const [providersFlatrates, setProvidersFlatrates] = useState([]);
   const { id } = useParams();
 
-
   useEffect(() => {
     axios
       .get(
-
         `https://api.themoviedb.org/3/movie/${id}?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
-
       )
       .then(({ data }) => {
         setTitles(data.original_title);
@@ -51,7 +47,6 @@ export default function FicheFilm() {
   useEffect(() => {
     axios
       .get(
-
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
@@ -61,14 +56,12 @@ export default function FicheFilm() {
       .catch(() => {
         setDirectors(['']);
         setActors(['']);
-
       });
   }, []);
 
   useEffect(() => {
     axios
       .get(
-
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
@@ -106,7 +99,6 @@ export default function FicheFilm() {
     UsersScorePictures = star1;
   }
 
-
   const Runtime = () => {
     if (runtimes > 59) {
       const hour = (runtimes - (runtimes % 60)) / 60;
@@ -116,7 +108,6 @@ export default function FicheFilm() {
 
     return `${runtimes} min`;
   };
-
 
   const poster = posters
     ? `https://image.tmdb.org/t/p/original${posters}`
@@ -186,7 +177,6 @@ export default function FicheFilm() {
           </div>
         </div>
 
-
         <div className="genresOverview">
           <div className="genres">
             {genres.map((genre) => {
@@ -215,7 +205,6 @@ export default function FicheFilm() {
         {actors
           .filter((actor) => actor.order < 3)
           .map((actor) => {
-
             const actorPoster = actor.profile_path
               ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
               : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=no image`;

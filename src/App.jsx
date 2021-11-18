@@ -15,9 +15,7 @@ function App() {
     <div className="main">
       <BrowserRouter>
         <Switch>
-
           <Route exact path="/">
-
             <Header />
             <Carousel />
             <SearchBar />

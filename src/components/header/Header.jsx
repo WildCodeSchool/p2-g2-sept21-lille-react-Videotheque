@@ -26,9 +26,7 @@ const Header = () => {
         <div className="logo">
           <Link
             to="/"
-
             className="home"
-
             style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
             Keep N
@@ -37,10 +35,8 @@ const Header = () => {
         <ul className="navLink">
           <li>
             <Link
-
               to="/Watchlist"
               className="watchpage "
-
               style={{ color: 'inherit', textDecoration: 'inherit' }}
             >
               Watchlist
