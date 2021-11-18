@@ -23,22 +23,17 @@
 
 @media (min-width: 800px) {
   .popMovieImg {
-    width: 320px;
-    height: 500px;
+    width: 17vw;
+    height: 27vw;
     margin-bottom: 13vh;
   }
 
   .imgContain {
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 5vh;
   }
 }
-
-/* .imgContain:hover {
-  -ms-transform: scale(1.5);
-  transform: scale(1.5);
-} */
 
 .react-slideshow-wrapper.slide {
   width: 100%;

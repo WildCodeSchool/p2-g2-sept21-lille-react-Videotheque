@@ -36,7 +36,7 @@
 
 @media screen and (max-width: 600px) {
   .searchBar {
-    width: 40vw;
+    width: 50vw;
     height: 8vh;
     font-size: 18px;
   }

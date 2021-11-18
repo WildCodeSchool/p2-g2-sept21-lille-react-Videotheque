@@ -66,6 +66,42 @@
 
 @media screen and (max-width: 390px) {
   .categories {
-    width: 70%;
+    font-size: 1.5vh;
+    text-align: center;
+    border: 2px solid black;
+    width: 13%;
+    height: 20vh;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.123);
+    -webkit-box-shadow: 0 5px 15px 1px #8f742c;
+    box-shadow: 0 5px 15px 1px #8f742c;
+    margin-bottom: 1px;
+    writing-mode: vertical-rl;
+    text-orientation: sideways-right;
+    font-family: 'Reem Kufi', sans-serif;
+  }
+
+  .select {
+    font-size: 3vh;
+    text-align: center;
+    width: 75vw;
+    border: 2px solid black;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-box-shadow: 0 5px 15px 1px #8f742c;
+    box-shadow: 0 5px 15px 1px #8f742c;
+    font-family: 'Reem Kufi', sans-serif;
+    border-radius: 9999px;
+    margin: 0.5vw;
+  }
+
+  .categoriesContenair {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 15vh;
+    margin-bottom: 6vh;
   }
 }
