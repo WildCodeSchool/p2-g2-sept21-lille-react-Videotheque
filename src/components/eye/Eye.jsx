@@ -6,7 +6,9 @@ const Eye = () => {
     <>
       <main className="card-container">
         <div className="ball-bouncing">
-          <div className="ball" />
+          <div className="ball">
+            <span className="letterK">K</span>
+          </div>
           <div className="coloredBall" img />
           <div className="blackBall" />
         </div>

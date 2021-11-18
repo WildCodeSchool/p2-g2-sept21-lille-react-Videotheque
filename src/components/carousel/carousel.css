@@ -1,11 +1,45 @@
+@import "react-slideshow-image/dist/styles.css";
+
+.slideContain {
+  background: #1fe0;
+  height: 60%;
+}
+
 .popMovieImg {
-  width: 230px;
-  height: 350px;
+  width: 320px;
+  height: 430px;
   margin: 40px;
-  margin-bottom: 10vh;
+  box-shadow: 20px 10px 23px -10px black;
 }
 
 .imgContain {
   display: flex;
   justify-content: center;
+  margin-top: 10vh;
+  width: 100vw;
+}
+
+/* -------------------MQ----------------- */
+
+@media (min-width: 800px) {
+  .popMovieImg {
+    width: 320px;
+    height: 500px;
+    margin-bottom: 13vh;
+  }
+
+  .imgContain {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+  }
+}
+
+/* .imgContain:hover {
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+} */
+
+.react-slideshow-wrapper.slide {
+  width: 100%;
 }

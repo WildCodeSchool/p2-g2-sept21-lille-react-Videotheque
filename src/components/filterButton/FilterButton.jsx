@@ -2,8 +2,8 @@ import './FilterButton.css';
 
 function FilterButton() {
   return (
-    <div>
-      <button className="Button" type="button">
+    <div className="filterButtonBlock">
+      <button className="filterButton" type="button">
         Advanced Search
       </button>
     </div>
