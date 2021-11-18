@@ -14,7 +14,7 @@
 
 .menu {
   height: 10vh;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   margin-bottom: 1vh;
@@ -36,43 +36,8 @@
       transparent 87%,
       #f5a81b 87.5%,
       #f1bc28
-    ),
-    linear-gradient(
-      30deg,
-      #facc4d 50%,
-      transparent 40%,
-      transparent 87%,
-      #f5a81b 87.5%,
-      #f1bc28
-    ),
-    linear-gradient(
-      50deg,
-      #facc4d 30%,
-      transparent 40%,
-      transparent 87%,
-      #f5a81b 87.5%,
-      #f1bc28
-    ),
-    linear-gradient(
-      60deg,
-      #facc4d 30%,
-      transparent 40%,
-      transparent 75%,
-      #f5a81b 75%,
-      #f1bc28
-    ),
-    linear-gradient(
-      60deg,
-      #f7d067 40%,
-      transparent 25.5%,
-      transparent 75%,
-      #f5a81b 75%,
-      #f1bc28
     );
-  overflow-x: scroll;
   background-size: 100vw 1200px;
-  background-attachment: scroll;
-  background-position: cover;
 }
 
 .bm-burger-bars {
@@ -128,8 +93,6 @@
     align-items: center;
     flex-flow: row, nowrap;
     justify-content: space-between;
-
-    /* box-shadow: 0 3px 10px 1px rgba(0, 0, 0, 0.08); */
   }
 
   .logo {
