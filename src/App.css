@@ -55,3 +55,10 @@ body {
   height: 100%;
   position: relative;
 }
+
+.title {
+  width: 100vw;
+  margin-top: 2vh;
+  text-align: center;
+  margin-left: 6vw;
+}

@@ -35,10 +35,27 @@
 
 /* Responsive */
 
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 600px) {
   .searchBar {
     width: 40vw;
     height: 8vh;
     font-size: 18px;
+  }
+
+  .results li {
+    list-style: none;
+    height: 190px;
+    width: 150px;
+  }
+
+  .results {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 6vh;
   }
 }

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './FicheFilm.css';
-import buttonTrailer from './play.png';
+
+import { useParams } from 'react-router-dom';
+
 import star1 from './star1.png';
 import star2 from './star2.png';
 import star3 from './star3.png';
 import star4 from './star4.png';
 import star5 from './star5.png';
-import buttonAdd from './add.png';
+
 
 export default function FicheFilm() {
   const [titles, setTitles] = useState([]);
@@ -23,10 +24,16 @@ export default function FicheFilm() {
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
 
+  const [providersFlatrates, setProvidersFlatrates] = useState([]);
+  const { id } = useParams();
+
+
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/19995?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
+
+        `https://api.themoviedb.org/3/movie/${id}?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
+
       )
       .then(({ data }) => {
         setTitles(data.original_title);
@@ -44,39 +51,61 @@ export default function FicheFilm() {
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/19995/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
+
+        `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setDirectors(data.crew[5]);
+        setDirectors(data.crew);
         setActors(data.cast);
+      })
+      .catch(() => {
+        setDirectors(['']);
+        setActors(['']);
+
       });
   }, []);
 
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/19995/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a'
+
+        `https://api.themoviedb.org/3/movie/${id}/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
         setTrailers(data.results[0]);
+      })
+      .catch(() => {
+        setTrailers([]);
       });
   }, []);
 
-  const Star = () => {
-    if (voteAverages === 10) {
-      return star5;
-    }
-    if (voteAverages < 10 && voteAverages >= 8) {
-      return star4;
-    }
-    if (voteAverages < 8 && voteAverages >= 6) {
-      return star3;
-    }
-    if (voteAverages < 6 && voteAverages >= 4) {
-      return star2;
-    }
-    return star1;
-  };
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
+      )
+
+      .then(({ data }) => {
+        setProvidersFlatrates(data.results);
+      })
+      .catch(() => {
+        setProvidersFlatrates([]);
+      });
+  }, []);
+
+  let UsersScorePictures;
+  if (voteAverages === 10) {
+    UsersScorePictures = star5;
+  } else if (voteAverages < 10 && voteAverages >= 8) {
+    UsersScorePictures = star4;
+  } else if (voteAverages < 8 && voteAverages >= 6) {
+    UsersScorePictures = star3;
+  } else if (voteAverages < 6 && voteAverages >= 4) {
+    UsersScorePictures = star2;
+  } else if (voteAverages < 4) {
+    UsersScorePictures = star1;
+  }
+
 
   const Runtime = () => {
     if (runtimes > 59) {
@@ -88,45 +117,75 @@ export default function FicheFilm() {
     return `${runtimes} min`;
   };
 
+
+  const poster = posters
+    ? `https://image.tmdb.org/t/p/original${posters}`
+    : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=No poster`;
+  const flatrate = providersFlatrates?.FR?.flatrate;
+
   return (
-    <div>
-      <div className="titreVote">
+    <div className="movieMainBloc">
+      <div className="titleVote">
         <p>{titles}</p>
-        <div className="vote">
-          <img className="starScore" src={Star()} alt="StarScore" />
+        <p className="vote">
+          <img className="starScore" src={UsersScorePictures} alt="StarScore" />
+          <br />
           <div className="numberVote">{numberVotes} votes</div>
-        </div>
+        </p>
       </div>
       <div className="posterTrailer">
-        <img
-          className="backgroundPoster"
-          src={`https://image.tmdb.org/t/p/original${backdrops}`}
-          alt="fond"
-        />
+        {backdrops && (
+          <img
+            className="backgroundPoster"
+            src={`https://image.tmdb.org/t/p/original${backdrops}`}
+            alt="fond"
+          />
+        )}
+
+        <img className="poster" src={poster} alt="trailer" />
+
         <div className="directorTimeDate">
-          <p>
-            {directors.job} :
-            <br />
-            {directors.name}
-          </p>
+          {typeof directors !== 'undefined' ? (
+            <>
+              {directors
+                .filter(
+                  (job) =>
+                    job.job === 'Director' && job.department === 'Directing'
+                )
+                .map((dir) => {
+                  return <p> Director : {dir.name}</p>;
+                })}
+            </>
+          ) : (
+            <p>Director : unknown</p>
+          )}
           <p>{Runtime()}</p>
           <p>({releaseDates})</p>
+          <div className="provider">
+            {flatrate ? (
+              <>
+                <h3>Streaming</h3>
+                <div>
+                  {providersFlatrates.FR.flatrate.map((providerFlatrate) => {
+                    return (
+                      <img
+                        className="provIco"
+                        src={`https://image.tmdb.org/t/p/original${providerFlatrate.logo_path}`}
+                        alt="{provider.provider_name}"
+                      />
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              <>
+                <h3>Streaming</h3>
+                <p>no providers</p>
+              </>
+            )}
+          </div>
         </div>
-        <div className="buttons">
-          <img className="buttonAdd" src={buttonAdd} alt="addCollection" />
-          <a href={`https://www.youtube.com/embed/${trailers.key}`}>
-            <img
-              className="buttonTrailer"
-              src={buttonTrailer}
-              alt="playTrailer"
-            />
-          </a>
-        </div>
-        <img
-          className="poster"
-          src={`https://image.tmdb.org/t/p/original${posters}`}
-          alt="trailer"
-        />
+
 
         <div className="genresOverview">
           <div className="genres">
@@ -138,16 +197,33 @@ export default function FicheFilm() {
         </div>
       </div>
 
+      <div className="buttons">
+        <button type="button" className="buttonAdd">
+          +
+        </button>
+
+        {typeof trailers !== 'undefined' && (
+          <a href={`https://www.youtube.com/embed/${trailers.key}`}>
+            <div className="buttonTrailer">
+              <div className="playTriangle" />
+            </div>
+          </a>
+        )}
+      </div>
+
       <div className="actors">
         {actors
           .filter((actor) => actor.order < 3)
           .map((actor) => {
+
+            const actorPoster = actor.profile_path
+              ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
+              : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=no image`;
+
             return (
               <div>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-                  alt="actor"
-                />
+                <img src={actorPoster} alt="actor" />
+
                 <p>
                   <span>{actor.name}</span>
                   <br />
