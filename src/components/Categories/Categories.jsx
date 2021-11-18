@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Categories.css';
 
@@ -7,6 +8,7 @@ export default function Categories() {
   const [movies, setMovies] = useState([]);
   const [genresIds, SetGenresIds] = useState([]);
   const randomYear = Math.floor(Math.random() * (2021 - 1980 + 1)) + 1980;
+
   useEffect(() => {
     axios
       .get(
@@ -56,13 +58,13 @@ export default function Categories() {
           )
           .map((movie) => {
             return (
-              <div className="titleMovie">
+              <Link to={`/FicheFilm/${movie.id}`} className="titleMovie">
                 <img
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                   alt="posterCategories"
                 />
                 <p>{movie.title}</p>
-              </div>
+              </Link>
             );
           })}
       </div>
