@@ -11,20 +11,20 @@ const Header = () => {
           <ul>
             <li>
               <Link
-                to="/Watchlist"
-                className="watchpage "
-                style={{ color: 'inherit', textDecoration: 'inherit' }}
-              />
-              Watchlist
-            </li>
-            <li>
-              <Link
                 to="/"
                 className="home"
                 style={{ color: 'inherit', textDecoration: 'inherit' }}
               >
                 Home
               </Link>
+            </li>
+            <li>
+              <Link
+                to="/Watchlist"
+                className="watchpage "
+                style={{ color: 'inherit', textDecoration: 'inherit' }}
+              />
+              Watchlist
             </li>
           </ul>
         </Menu>
