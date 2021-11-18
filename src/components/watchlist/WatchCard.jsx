@@ -7,7 +7,7 @@ const WatchCard = () => {
   const [isWatched, setIsWatched] = useState(false);
 
   return (
-    <div className="WatchBloc">
+    <div className="watchBloc">
       <button
         onClick={() => {
           setIsWatched(!isWatched);
