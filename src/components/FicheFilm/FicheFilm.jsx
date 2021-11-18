@@ -177,6 +177,7 @@ export default function FicheFilm() {
         <img className="poster" src={poster} alt="trailer" />
 
         <div className="directorTimeDate">
+
           {typeof directors !== 'undefined' ? (
             <>
               {directors
@@ -217,8 +218,8 @@ export default function FicheFilm() {
             )}
           </div>
 
-        </div>
 
+        </div>
         <div className="genresOverview">
           <div className="genres">
             {genres.map((genre) => {
