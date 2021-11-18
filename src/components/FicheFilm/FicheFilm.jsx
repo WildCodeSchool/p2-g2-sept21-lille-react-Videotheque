@@ -145,8 +145,8 @@ export default function FicheFilm() {
             {Runtime()}
             <br /> ({releaseDates})
           </p>
+          <p>({releaseDates})</p>
         </div>
-
         <div className="genresOverview">
           <div className="genres">
             {genres.map((genre) => {
