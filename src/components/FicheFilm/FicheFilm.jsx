@@ -9,16 +9,16 @@ import star4 from './star4.png';
 import star5 from './star5.png';
 
 export default function FicheFilm() {
-  const [title, setTitle] = useState([]);
-  const [voteAverage, setVoteAverage] = useState([]);
-  const [numberVote, setNumberVote] = useState([]);
-  const [poster, setPoster] = useState([]);
-  const [backdrop, setBackdrop] = useState([]);
+  const [titles, setTitle] = useState([]);
+  const [voteAverages, setVoteAverage] = useState([]);
+  const [numberVotes, setNumberVote] = useState([]);
+  const [posters, setPoster] = useState([]);
+  const [backdrops, setBackdrop] = useState([]);
   const [director, setDirector] = useState([]);
   const [trailer, setTrailer] = useState([]);
   const [overview, setOverview] = useState([]);
-  const [runtime, setRuntime] = useState([]);
-  const [releaseDate, setReleaseDate] = useState([]);
+  const [runtimes, setRuntime] = useState([]);
+  const [releaseDates, setReleaseDate] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
   const { id } = useParams();
@@ -50,9 +50,6 @@ export default function FicheFilm() {
       .then(({ data }) => {
         setDirector(data.crew[5]);
         setActors(data.cast);
-      })
-      .catch(() => {
-        console.error('Erreur API');
       });
   }, []);
 
@@ -63,12 +60,24 @@ export default function FicheFilm() {
       )
       .then(({ data }) => {
         setTrailer(data.results[0]);
-      })
-      .catch(() => {
-        console.error('Erreur API');
       });
   }, []);
 
+  const Star = () => {
+    if (voteAverages === 10) {
+      return star5;
+    }
+    if (voteAverages < 10 && voteAverages >= 8) {
+      return star4;
+    }
+    if (voteAverages < 8 && voteAverages >= 6) {
+      return star3;
+    }
+    if (voteAverages < 6 && voteAverages >= 4) {
+      return star2;
+    }
+    return star1;
+  };
 
   useEffect(() => {
     const newList = JSON.parse(localStorage.getItem('watchlist'));
@@ -78,8 +87,8 @@ export default function FicheFilm() {
   const addToWatch = () => {
     const foundMovie = {
       Id: id,
-      Title: title,
-      PosterPath: `https://image.tmdb.org/t/p/original${backdrop}`,
+      Title: titles,
+      PosterPath: `https://image.tmdb.org/t/p/original${backdrops}`,
     };
     const newWList = [...watchlist, foundMovie];
     setWatchlist(newWList);
@@ -92,50 +101,27 @@ export default function FicheFilm() {
     setWatchlist(newWList);
   };
 
-  let UsersScorePictures;
-  if (voteAverages === 10) {
-    UsersScorePictures = star5;
-  } else if (voteAverages < 10 && voteAverages >= 8) {
-    UsersScorePictures = star4;
-  } else if (voteAverages < 8 && voteAverages >= 6) {
-    UsersScorePictures = star3;
-  } else if (voteAverages < 6 && voteAverages >= 4) {
-    UsersScorePictures = star2;
-  } else if (voteAverages < 4) {
-    UsersScorePictures = star1;
-  }
-
-
   useEffect(() => {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
   }, [watchlist]);
 
-  let UsersScorePictures;
-  if (voteAverage === 10) {
-    UsersScorePictures = star5;
-  } else if (voteAverage < 10 && voteAverage >= 8) {
-    UsersScorePictures = star4;
-  } else if (voteAverage < 8 && voteAverage >= 6) {
-    UsersScorePictures = star3;
-  } else if (voteAverage < 6 && voteAverage >= 4) {
-    UsersScorePictures = star2;
-  } else if (voteAverage < 4) {
-    UsersScorePictures = star1;
-  }
-
-  const hour = (runtime - (runtime % 60)) / 60;
-  const min = (runtime / 60 - hour) * 60;
+  const Runtime = () => {
+    if (runtimes > 59) {
+      const hour = (runtimes - (runtimes % 60)) / 60;
+      const min = Math.round(((runtimes % 60) - hour) * 60 * 100) / 100;
+      return `${hour} H ${min} `;
+    }
+    return `${runtimes} min`;
+  };
 
   return (
-
     <div className="movieMainBloc">
       <div className="titleVote">
         <p>{titles}</p>
         <p className="vote">
-          <img className="starScore" src={UsersScorePictures} alt="starScore" />
+          <img className="starScore" src={Star()} alt="starScore" />
           <br />
           <div className="numberVote">{numberVotes} votes</div>
-
         </p>
       </div>
       <div className="posterTrailer">
@@ -144,13 +130,11 @@ export default function FicheFilm() {
           src={`https://image.tmdb.org/t/p/original${backdrops}`}
           alt="banner"
         />
-
         <img
           className="poster"
           src={`https://image.tmdb.org/t/p/original${posters}`}
           alt="trailer"
         />
-
         <div className="directorTimeDate">
           <p>
             {director.job} :
@@ -158,7 +142,7 @@ export default function FicheFilm() {
             {director.name}
           </p>
           <p>
-            {hour} H {min}
+            {Runtime()}
             <br /> ({releaseDates})
           </p>
         </div>
@@ -186,13 +170,11 @@ export default function FicheFilm() {
 
         <a href={`https://www.youtube.com/embed/${trailer.key}`}>
           <div className="buttonTrailer" alt="Trailer">
-
-
             <div className="playTriangle" />
           </div>
         </a>
       </div>
-      
+
       <div className="actors">
         {actors
           .filter((actor) => actor.order < 3)
