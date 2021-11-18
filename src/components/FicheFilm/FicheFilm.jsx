@@ -14,8 +14,8 @@ export default function FicheFilm() {
   const [numberVotes, setNumberVote] = useState([]);
   const [posters, setPoster] = useState([]);
   const [backdrops, setBackdrop] = useState([]);
-  const [director, setDirector] = useState([]);
-  const [trailer, setTrailer] = useState([]);
+  const [directors, setDirectors] = useState([]);
+  const [trailers, setTrailers] = useState([]);
   const [overview, setOverview] = useState([]);
   const [runtimes, setRuntime] = useState([]);
   const [releaseDates, setReleaseDate] = useState([]);
@@ -25,7 +25,6 @@ export default function FicheFilm() {
   const { id } = useParams();
 
   const [watchlist, setWatchlist] = useState([]);
-
 
   useEffect(() => {
     axios
@@ -51,7 +50,6 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-
         setDirectors(data.crew);
 
         setActors(data.cast);
@@ -68,7 +66,6 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-
         setTrailers(data.results[0]);
       })
       .catch(() => {
@@ -87,7 +84,6 @@ export default function FicheFilm() {
       })
       .catch(() => {
         setProvidersFlatrates([]);
-
       });
   }, []);
 
@@ -112,7 +108,6 @@ export default function FicheFilm() {
     if (newList) setWatchlist(newList);
   }, []);
 
-
   const addToWatch = () => {
     const foundMovie = {
       Id: id,
@@ -134,14 +129,12 @@ export default function FicheFilm() {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
   }, [watchlist]);
 
-
   const Runtime = () => {
     if (runtimes > 59) {
       const hour = (runtimes - (runtimes % 60)) / 60;
-      const min = Math.round(((runtimes % 60) - hour) * 60 * 100) / 100;
+      const min = runtimes % 60;
       return `${hour} H ${min} `;
     }
-
 
     return `${runtimes} min`;
   };
@@ -151,13 +144,11 @@ export default function FicheFilm() {
     : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=No poster`;
   const flatrate = providersFlatrates?.FR?.flatrate;
 
-
   return (
     <div className="movieMainBloc">
       <div className="titleVote">
         <p>{titles}</p>
         <p className="vote">
-
           <img className="starScore" src={Star()} alt="starScore" />
 
           <br />
@@ -165,7 +156,6 @@ export default function FicheFilm() {
         </p>
       </div>
       <div className="posterTrailer">
-<
         {backdrops && (
           <img
             className="backgroundPoster"
@@ -177,7 +167,6 @@ export default function FicheFilm() {
         <img className="poster" src={poster} alt="trailer" />
 
         <div className="directorTimeDate">
-
           {typeof directors !== 'undefined' ? (
             <>
               {directors
@@ -217,8 +206,6 @@ export default function FicheFilm() {
               </>
             )}
           </div>
-
-
         </div>
         <div className="genresOverview">
           <div className="genres">
@@ -231,7 +218,6 @@ export default function FicheFilm() {
       </div>
 
       <div className="buttons">
-
         {watchlist.find((movie) => movie.Id === id) ? (
           <button type="button" onClick={deleteToWatch} className="buttonAdd">
             <span className="buttonText+or-">Removie!</span>
@@ -249,7 +235,6 @@ export default function FicheFilm() {
             </div>
           </a>
         )}
-
       </div>
 
       <div className="actors">
