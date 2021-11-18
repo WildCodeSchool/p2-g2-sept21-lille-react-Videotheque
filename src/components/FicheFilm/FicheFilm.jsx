@@ -9,20 +9,23 @@ import star4 from './star4.png';
 import star5 from './star5.png';
 
 export default function FicheFilm() {
-  const [title, setTitle] = useState([]);
-  const [voteAverage, setVoteAverage] = useState([]);
-  const [numberVote, setNumberVote] = useState([]);
-  const [poster, setPoster] = useState([]);
-  const [backdrop, setBackdrop] = useState([]);
-  const [director, setDirector] = useState([]);
-  const [trailer, setTrailer] = useState([]);
+  const [titles, setTitle] = useState([]);
+  const [voteAverages, setVoteAverage] = useState([]);
+  const [numberVotes, setNumberVote] = useState([]);
+  const [posters, setPoster] = useState([]);
+  const [backdrops, setBackdrop] = useState([]);
+  const [directors, setDirectors] = useState([]);
+  const [trailers, setTrailers] = useState([]);
   const [overview, setOverview] = useState([]);
-  const [runtime, setRuntime] = useState([]);
-  const [releaseDate, setReleaseDate] = useState([]);
+  const [runtimes, setRuntime] = useState([]);
+  const [releaseDates, setReleaseDate] = useState([]);
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [providersFlatrates, setProvidersFlatrates] = useState([]);
   const { id } = useParams();
+
   const [watchlist, setWatchlist] = useState([]);
+
   useEffect(() => {
     axios
       .get(
@@ -47,11 +50,13 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/credits?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setDirector(data.crew[5]);
+        setDirectors(data.crew);
+
         setActors(data.cast);
       })
       .catch(() => {
-        console.error('Erreur API');
+        setDirectors(['']);
+        setActors(['']);
       });
   }, []);
 
@@ -61,12 +66,42 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}/videos?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setTrailer(data.results[0]);
+        setTrailers(data.results[0]);
       })
       .catch(() => {
-        console.error('Erreur API');
+        setTrailers([]);
       });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
+      )
+
+      .then(({ data }) => {
+        setProvidersFlatrates(data.results);
+      })
+      .catch(() => {
+        setProvidersFlatrates([]);
+      });
+  }, []);
+
+  const Star = () => {
+    if (voteAverages === 10) {
+      return star5;
+    }
+    if (voteAverages < 10 && voteAverages >= 8) {
+      return star4;
+    }
+    if (voteAverages < 8 && voteAverages >= 6) {
+      return star3;
+    }
+    if (voteAverages < 6 && voteAverages >= 4) {
+      return star2;
+    }
+    return star1;
+  };
 
   useEffect(() => {
     const newList = JSON.parse(localStorage.getItem('watchlist'));
@@ -76,8 +111,8 @@ export default function FicheFilm() {
   const addToWatch = () => {
     const foundMovie = {
       Id: id,
-      Title: title,
-      PosterPath: `https://image.tmdb.org/t/p/original${backdrop}`,
+      Title: titles,
+      PosterPath: `https://image.tmdb.org/t/p/original${backdrops}`,
     };
     const newWList = [...watchlist, foundMovie];
     setWatchlist(newWList);
@@ -94,57 +129,84 @@ export default function FicheFilm() {
     localStorage.setItem('watchlist', JSON.stringify(watchlist));
   }, [watchlist]);
 
-  let UsersScorePictures;
-  if (voteAverage === 10) {
-    UsersScorePictures = star5;
-  } else if (voteAverage < 10 && voteAverage >= 8) {
-    UsersScorePictures = star4;
-  } else if (voteAverage < 8 && voteAverage >= 6) {
-    UsersScorePictures = star3;
-  } else if (voteAverage < 6 && voteAverage >= 4) {
-    UsersScorePictures = star2;
-  } else if (voteAverage < 4) {
-    UsersScorePictures = star1;
-  }
+  const Runtime = () => {
+    if (runtimes > 59) {
+      const hour = (runtimes - (runtimes % 60)) / 60;
+      const min = Math.round(((runtimes % 60) - hour) * 60 * 100) / 100;
+      return `${hour} H ${min} `;
+    }
 
-  const hour = (runtime - (runtime % 60)) / 60;
-  const min = (runtime / 60 - hour) * 60;
+    return `${runtimes} min`;
+  };
+
+  const poster = posters
+    ? `https://image.tmdb.org/t/p/original${posters}`
+    : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=No poster`;
+  const flatrate = providersFlatrates?.FR?.flatrate;
 
   return (
-    <div className="filmMainBloc">
-      <div className="titreVote">
-        <p>{title}</p>
+    <div className="movieMainBloc">
+      <div className="titleVote">
+        <p>{titles}</p>
         <p className="vote">
-          <img className="starScore" src={UsersScorePictures} alt="StarScore" />
+          <img className="starScore" src={Star()} alt="starScore" />
+
           <br />
-          <div className="numberVote">{numberVote} votes</div>
+          <div className="numberVote">{numberVotes} votes</div>
         </p>
       </div>
       <div className="posterTrailer">
-        <img
-          className="backgroundPoster"
-          src={`https://image.tmdb.org/t/p/original${backdrop}`}
-          alt="fond"
-        />
+        {backdrops && (
+          <img
+            className="backgroundPoster"
+            src={`https://image.tmdb.org/t/p/original${backdrops}`}
+            alt="fond"
+          />
+        )}
 
-        <img
-          className="poster"
-          src={`https://image.tmdb.org/t/p/original${poster}`}
-          alt="trailer"
-        />
+        <img className="poster" src={poster} alt="trailer" />
 
         <div className="directorTimeDate">
-          <p>
-            {director.job} :
-            <br />
-            {director.name}
-          </p>
-          <p>
-            {hour} H {min}
-            <br /> ({releaseDate})
-          </p>
+          {typeof directors !== 'undefined' ? (
+            <>
+              {directors
+                .filter(
+                  (job) =>
+                    job.job === 'Director' && job.department === 'Directing'
+                )
+                .map((dir) => {
+                  return <p> Director : {dir.name}</p>;
+                })}
+            </>
+          ) : (
+            <p>Director : unknown</p>
+          )}
+          <p>{Runtime()}</p>
+          <p>({releaseDates})</p>
+          <div className="provider">
+            {flatrate ? (
+              <>
+                <h3>Streaming</h3>
+                <div>
+                  {providersFlatrates.FR.flatrate.map((providerFlatrate) => {
+                    return (
+                      <img
+                        className="provIco"
+                        src={`https://image.tmdb.org/t/p/original${providerFlatrate.logo_path}`}
+                        alt="{provider.provider_name}"
+                      />
+                    );
+                  })}
+                </div>
+              </>
+            ) : (
+              <>
+                <h3>Streaming</h3>
+                <p>no providers</p>
+              </>
+            )}
+          </div>
         </div>
-
         <div className="genresOverview">
           <div className="genres">
             {genres.map((genre) => {
@@ -166,22 +228,26 @@ export default function FicheFilm() {
           </button>
         )}
 
-        <a href={`https://www.youtube.com/embed/${trailer.key}`}>
-          <div className="buttonTrailer" alt="Trailer">
-            <div className="playTriangle" />
-          </div>
-        </a>
+        {typeof trailers !== 'undefined' && (
+          <a href={`https://www.youtube.com/embed/${trailers.key}`}>
+            <div className="buttonTrailer">
+              <div className="playTriangle" />
+            </div>
+          </a>
+        )}
       </div>
+
       <div className="actors">
         {actors
           .filter((actor) => actor.order < 3)
           .map((actor) => {
+            const actorPoster = actor.profile_path
+              ? `https://image.tmdb.org/t/p/original${actor.profile_path}`
+              : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=no image`;
+
             return (
               <div>
-                <img
-                  src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-                  alt="actor"
-                />
+                <img src={actorPoster} alt="actor" />
                 <p>
                   <span>{actor.name}</span>
                   <br />

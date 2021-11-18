@@ -6,27 +6,37 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   return (
     <>
-      <Menu width="40%" className="menu">
-        <ul>
-          <li className=" menu-item">Watchlist</li>
-        </ul>
-      </Menu>
-
-      <nav className="navbar ">
+      <div className="menu">
+        <Menu width="40%">
+          <ul>
+            <li className=" menuItem">Watchlist</li>
+            <li>
+              <Link
+                to="/"
+                className="home"
+                style={{ color: 'inherit', textDecoration: 'inherit' }}
+              >
+                Home
+              </Link>
+            </li>
+          </ul>
+        </Menu>
+      </div>
+      <nav className="navBar ">
         <div className="logo">
           <Link
             to="/"
-            className="Home"
+            className="home"
             style={{ color: 'inherit', textDecoration: 'inherit' }}
           >
             Keep N
           </Link>
         </div>
-        <ul className="navlink">
+        <ul className="navLink">
           <li>
             <Link
-              to="/Watchlist"
-              className="watchpage "
+              to="/FicheFilm"
+              className="watchPage "
               style={{ color: 'inherit', textDecoration: 'inherit' }}
             >
               Watchlist

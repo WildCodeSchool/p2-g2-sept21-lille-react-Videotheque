@@ -1,5 +1,5 @@
 /* Removing Navbar on mobile */
-.navbar {
+.navBar {
   display: none;
 }
 
@@ -10,6 +10,34 @@
   height: 30px;
   left: 36px;
   top: 36px;
+}
+
+.menu {
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  margin-bottom: 1vh;
+  width: 100%;
+  background-color: #e5e5f7;
+  background-image:
+    linear-gradient(
+      30deg,
+      #f79a22 40%,
+      transparent 12.5%,
+      transparent 87%,
+      #f7bd51 87.5%,
+      #f1bc47
+    ),
+    linear-gradient(
+      150deg,
+      #facc4d 50%,
+      transparent 40%,
+      transparent 87%,
+      #f5a81b 87.5%,
+      #f1bc28
+    );
+  background-size: 100vw 1200px;
 }
 
 .bm-burger-bars {
@@ -57,9 +85,9 @@
 
 @media only screen and (min-width: 600px) {
   /* Desktop style */
-  .navbar {
+  .navBar {
     height: 10vh;
-    width: 100vw;
+    width: 100%;
     background: rgba(196, 196, 196, 0.2);
     display: flex;
     align-items: center;
@@ -80,7 +108,7 @@
     transform: scale(1.03);
   }
 
-  .navlink {
+  .navLink {
     font-family: 'Reem Kufi', sans-serif;
     font-size: 3.5vh;
     line-height: 60px;
@@ -90,6 +118,10 @@
 
   /* Removing Burger menu from Desktop  */
   .bm-burger-button {
+    display: none;
+  }
+
+  .menu {
     display: none;
   }
 }

@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import unwatchedMovie from './unwatchedMovie.png';
 import watchedMovie from './watchedMovie.png';
+import unwatchedMovie from './unwatchedMovie.png';
 import './watchlist.css';
 
 const WatchCard = () => {
   const [isWatched, setIsWatched] = useState(false);
 
   return (
-    <div className="watchBloc">
+    <div className="WatchBloc">
       <button
         onClick={() => {
           setIsWatched(!isWatched);

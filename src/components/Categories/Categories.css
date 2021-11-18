@@ -1,0 +1,63 @@
+body > div {
+  font-family: 'Reem Kufi', sans-serif;
+}
+
+.categories {
+  font-size: 36px;
+  text-align: center;
+  border: 2px solid black;
+  width: 40%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  margin: 70px 0 70px 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 5px 15px 1px #8f742c;
+  box-shadow: 0 5px 15px 1px #8f742c;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  width: 292px;
+  height: 349px;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.moviesCategories {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 60%;
+  margin: auto;
+  font-size: 17px;
+}
+
+.titleMovie > p {
+  background: #000;
+  background: -moz-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
+  background: -webkit-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
+  background: linear-gradient(to bottom, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
+  border-right: 1px solid #000;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background-color: white;
+  padding: 9px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: -3px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 273px;
+}
+
+@media screen and (max-width: 390px) {
+  .categories {
+    width: 70%;
+  }
+}

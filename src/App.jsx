@@ -1,18 +1,18 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Carousel from './components/carousel/Carousel';
 import SearchBar from './components/searchBar/SearchBar';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
 import Watchlist from './components/watchlist/Watchlist';
-import './App.css';
+import Header from './components/header/Header';
 import FicheFilm from './components/FicheFilm/FicheFilm';
+import Footer from './components/footer/Footer';
+import './App.css';
 
 function App() {
   return (
     <div className="main">
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact>
+          <Route exact path="/">
             <Header />
             <Carousel />
             <SearchBar />
