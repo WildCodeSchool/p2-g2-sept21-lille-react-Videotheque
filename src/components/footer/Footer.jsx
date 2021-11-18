@@ -8,7 +8,6 @@ import './footer.css';
 
 const Footer = () => {
   return (
-
     <section className="footer">
       <section className="links">
         <div className="keepnTeam">
@@ -46,7 +45,6 @@ const Footer = () => {
         </p>
       </div>
     </section>
-
   );
 };
 
