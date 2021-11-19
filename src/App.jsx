@@ -7,6 +7,7 @@ import FicheFilm from './components/FicheFilm/FicheFilm';
 import Categories from './components/Categories/Categories';
 import Watchlist from './components/watchlist/Watchlist';
 import './App.css';
+import AboutUs from './components/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
           <Route path="/Watchlist">
             <Header />
             <Watchlist />
+            <Footer />
+          </Route>
+          <Route path="/AboutUs">
+            <Header />
+            <AboutUs />
             <Footer />
           </Route>
         </Switch>
