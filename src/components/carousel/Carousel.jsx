@@ -47,7 +47,7 @@ const Carousel = () => {
     <section className="slideContain">
       <Slide {...properties}>
         {moviePics.map((moviePic) => {
-          const urlMovie = `https://image.tmdb.org/t/p/original/${moviePic.poster_path}`;
+          const urlMovie = `https://image.tmdb.org/t/p/w220_and_h330_face/${moviePic.poster_path}`;
           return (
             <div className="imgContain">
               <img

@@ -23,8 +23,9 @@ const Header = () => {
                 to="/Watchlist"
                 className="watchpage "
                 style={{ color: 'inherit', textDecoration: 'inherit' }}
-              />
-              Watchlist
+              >
+                Watchlist
+              </Link>
             </li>
           </ul>
         </Menu>
