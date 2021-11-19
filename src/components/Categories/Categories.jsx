@@ -42,7 +42,14 @@ export default function Categories() {
 
   return (
     <div>
-      <div className="categoriesContenair">
+      <div className="head">
+        <h1 className="choose">
+          {' '}
+          Choose your movie, by our category section !{' '}
+        </h1>{' '}
+        <h2 className="year">Year : {randomYear}</h2>
+      </div>
+      <div className="categoriesContainer">
         {categories.map((category) => {
           return (
             <button
