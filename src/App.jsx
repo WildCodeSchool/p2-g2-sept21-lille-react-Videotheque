@@ -5,6 +5,7 @@ import Watchlist from './components/watchlist/Watchlist';
 import Header from './components/header/Header';
 import FicheFilm from './components/FicheFilm/FicheFilm';
 import Footer from './components/footer/Footer';
+import Categories from './components/Categories/Categories';
 import './App.css';
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
           <Route path="/FicheFilm/:id">
             <Header />
             <FicheFilm />
+          </Route>
+          <Route path="/Categories">
+            <Header />
+            <Categories />
           </Route>
           <Route path="/Watchlist">
             <Header />

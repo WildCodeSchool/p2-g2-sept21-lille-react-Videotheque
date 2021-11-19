@@ -2,25 +2,45 @@ body > div {
   font-family: 'Reem Kufi', sans-serif;
 }
 
-.categories {
-  font-size: 36px;
-  text-align: center;
-  border: 2px solid black;
-  width: 40%;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  margin: 70px 0 70px 0;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.4);
-  -webkit-box-shadow: 0 5px 15px 1px #8f742c;
-  box-shadow: 0 5px 15px 1px #8f742c;
-  display: flex;
-  flex-direction: column;
+.choose {
+  margin-top: 10vh;
+  font-size: 40px;
+  margin-bottom: 4vh;
 }
 
-img {
-  width: 292px;
-  height: 349px;
+.year {
+  margin-top: 10vh;
+  font-size: 30px;
+}
+
+.myCategories {
+  width: 100%;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+}
+
+.categories {
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid black;
+  width: 13%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.123);
+  -webkit-box-shadow: 0 5px 15px 1px #8f742c;
+  box-shadow: 0 5px 15px 1px #8f742c;
+  transition: ease-in 0.2s;
+  margin-bottom: 1px;
+}
+
+.categories:hover {
+  transform: translateY(-8px);
+}
+
+.movieimg {
+  width: 13vw;
+  height: auto;
   border-top: 1px solid #000;
   border-right: 1px solid #000;
   border-left: 1px solid #000;
@@ -31,12 +51,13 @@ img {
   justify-content: space-around;
   flex-wrap: wrap;
   text-align: center;
-  width: 60%;
+  width: 90%;
   margin: auto;
   font-size: 17px;
 }
 
 .titleMovie > p {
+  width: 13vw;
   background: #000;
   background: -moz-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
   background: -webkit-linear-gradient(top, rgb(0, 0, 0, 0.5) 0%, #eee8ec 20%, #fff 100%);
@@ -57,7 +78,43 @@ img {
 }
 
 @media screen and (max-width: 390px) {
+  .choose {
+    margin-top: 17vh;
+    font-size: 40px;
+  }
+
+  .year {
+    margin-top: 6vh;
+    font-size: 30px;
+  }
+
   .categories {
-    width: 70%;
+    font-size: 14px;
+    width: 113px;
+    height: 70px;
+    overflow: auto;
+    border: 1px solid #f76c6c;
+  }
+
+  .categories:hover {
+    transform: translateY(0);
+  }
+
+  .movieimg {
+    width: 150px;
+    height: auto;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+  }
+
+  .titleMovie > p {
+    width: 150px;
+  }
+
+  .moviesCategories {
+    text-align: center;
+    width: 100%;
+    font-size: 17px;
   }
 }

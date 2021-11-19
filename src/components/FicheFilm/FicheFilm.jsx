@@ -22,6 +22,7 @@ export default function FicheFilm() {
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
   const [providersFlatrates, setProvidersFlatrates] = useState([]);
+  const [myProviders, setMyProviders] = useState([]);
   const { id } = useParams();
 
   const [watchlist, setWatchlist] = useState([]);
@@ -87,6 +88,20 @@ export default function FicheFilm() {
       });
   }, []);
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
+      )
+
+      .then(({ data }) => {
+        setMyProviders(data.results.FR.flatrate);
+      })
+      .catch(() => {
+        setMyProviders([]);
+      });
+  }, []);
+
   const Star = () => {
     if (voteAverages === 10) {
       return star5;
@@ -108,11 +123,15 @@ export default function FicheFilm() {
     if (newList) setWatchlist(newList);
   }, []);
 
+  const flatrate = providersFlatrates?.FR?.flatrate;
+
   const addToWatch = () => {
     const foundMovie = {
       Id: id,
       Title: titles,
       PosterPath: `https://image.tmdb.org/t/p/original${backdrops}`,
+      Provider1: myProviders[0]?.logo_path,
+      Provider2: myProviders[1]?.logo_path,
     };
     const newWList = [...watchlist, foundMovie];
     setWatchlist(newWList);
@@ -142,7 +161,6 @@ export default function FicheFilm() {
   const poster = posters
     ? `https://image.tmdb.org/t/p/original${posters}`
     : `https://via.placeholder.com/220x330/FFFFFF/000000/?text=No poster`;
-  const flatrate = providersFlatrates?.FR?.flatrate;
 
   return (
     <div className="movieMainBloc">

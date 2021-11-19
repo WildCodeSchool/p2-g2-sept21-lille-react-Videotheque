@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Categories.css';
 
@@ -30,21 +31,28 @@ export default function Categories() {
 
   return (
     <div>
-      <div>
-        {categories.map((category) => {
-          return (
-            <button
-              className="categories"
-              type="button"
-              value={category.id}
-              onClick={() => SetGenresIds(category.id)}
-            >
-              {category.name}
-            </button>
-          );
-        })}
-      </div>
       <div className="moviesCategories">
+        <h1 className="choose">
+          {' '}
+          Choose your movie, by our category section !{' '}
+        </h1>{' '}
+        <br />
+        <h2 className="year">Year : {randomYear}</h2>
+        <div className="myCategories">
+          {categories.map((category) => {
+            return (
+              <button
+                className="categories"
+                type="button"
+                value={category.id}
+                onClick={() => SetGenresIds(category.id)}
+              >
+                {category.name}
+              </button>
+            );
+          })}
+        </div>
+        <br />
         {movies
           .filter(
             (movie) =>
@@ -57,14 +65,18 @@ export default function Categories() {
           .map((movie) => {
             return (
               <div className="titleMovie">
-                <img
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt="posterCategories"
-                />
+                <Link to={`/FicheFilm/${movie.id}`}>
+                  <img
+                    className="movieimg"
+                    src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                    alt="posterCategories"
+                  />
+                </Link>
                 <p>{movie.title}</p>
               </div>
             );
           })}
+        <br />
       </div>
     </div>
   );

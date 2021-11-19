@@ -18,6 +18,10 @@ export default function Watchlist() {
     setWatchlist(myNewWatchList);
   };
 
+  useEffect(() => {
+    localStorage.setItem('watchlist', JSON.stringify(watchlist));
+  }, [watchlist]);
+
   return (
     <div className="watchlist">
       <h1 className="myWatchlist">My Watchlist</h1>
@@ -51,6 +55,23 @@ export default function Watchlist() {
                 >
                   <span className="buttonText">Remove!</span>
                 </button>
+
+                <div className="providers">
+                  {movie.Provider1 && (
+                    <img
+                      className="providerImg"
+                      src={`https://image.tmdb.org/t/p/original${movie.Provider1}`}
+                      alt="Streaming icon"
+                    />
+                  )}
+                  {movie.Provider2 && (
+                    <img
+                      className="providerImg"
+                      src={`https://image.tmdb.org/t/p/original${movie.Provider2}`}
+                      alt="Streaming icon"
+                    />
+                  )}
+                </div>
               </div>
             </li>
           </ul>
