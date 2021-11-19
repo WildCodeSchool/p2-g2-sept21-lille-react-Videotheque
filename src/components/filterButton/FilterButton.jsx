@@ -3,7 +3,11 @@ import './FilterButton.css';
 
 function FilterButton() {
   return (
-    <Link to="Categories/" className="filterButtonBlock">
+    <Link
+      to="/Categories"
+      style={{ color: 'inherit', textDecoration: 'inherit' }}
+      className="filterButtonBlock"
+    >
       <button className="filterButton" type="button">
         Advanced Search
       </button>

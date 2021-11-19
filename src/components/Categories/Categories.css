@@ -1,30 +1,30 @@
-body > div {
-  font-family: 'Reem Kufi', sans-serif;
-}
-
 .categories {
-  font-size: 36px;
+  font-size: 20px;
   text-align: center;
-  margin-top: 70px;
   border: 2px solid black;
-  width: 40%;
+  width: 13%;
   padding-top: 24px;
   padding-bottom: 24px;
-  margin-bottom: 70px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.123);
   -webkit-box-shadow: 0 5px 15px 1px #8f742c;
   box-shadow: 0 5px 15px 1px #8f742c;
-  display: flex;
-  flex-direction: column;
+  transition: ease-in 0.2s;
+  margin-bottom: 1px;
 }
 
-img {
-  width: 292px;
-  height: 349px;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-left: 1px solid #000;
+.categories:hover {
+  transform: translateY(-8px);
+}
+
+.categoriesContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
 }
 
 .moviesCategories {
@@ -32,51 +32,103 @@ img {
   justify-content: space-around;
   flex-wrap: wrap;
   text-align: center;
-  width: 60%;
   margin: auto;
   font-size: 17px;
 }
 
-.titleMovie > p {
-  background: #000;
-  background:
-    -moz-linear-gradient(
-      top,
-      rgb(0, 0, 0, 0.5) 0%,
-      #eee8ec 20%,
-      #fff 100%
-    );
-  background:
-    -webkit-linear-gradient(
-      top,
-      rgb(0, 0, 0, 0.5) 0%,
-      #eee8ec 20%,
-      #fff 100%
-    );
-  background:
-    linear-gradient(
-      to bottom,
-      rgb(0, 0, 0, 0.5) 0%,
-      #eee8ec 20%,
-      #fff 100%
-    );
-  border-right: 1px solid #000;
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #000;
-  background-color: white;
-  padding: 9px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-top: -3px;
-  margin-bottom: 40px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 273px;
+.moviesCategories li {
+  list-style: none;
+  margin: 12px;
+  height: 380px;
+  width: 220px;
+}
+
+.random {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0.5vw 0 3vh 0;
+}
+
+.select {
+  font-size: 2.5vh;
+  text-align: center;
+  width: 22vw;
+  border: 2px solid black;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-box-shadow: 0 5px 15px 1px #8f742c;
+  box-shadow: 0 5px 15px 1px #8f742c;
+  font-family: 'Reem Kufi', sans-serif;
+  border-radius: 9999px;
+}
+
+.choose {
+  margin-top: 10vh;
+  font-size: 40px;
+  margin-bottom: 4vh;
+  text-align: center;
+}
+
+.year {
+  margin-top: 10vh;
+  font-size: 30px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1vw;
 }
 
 @media screen and (max-width: 390px) {
+  .choose {
+    margin-top: 17vh;
+    font-size: 40px;
+  }
+
+  .year {
+    margin-top: 6vh;
+    font-size: 30px;
+    text-align: center;
+  }
+
   .categories {
-    width: 70%;
+    font-size: 14px;
+    width: 113px;
+    height: 70px;
+    overflow: auto;
+    border: 1px solid #f76c6c;
+  }
+
+  .categories:hover {
+    transform: translateY(0);
+  }
+
+  .moviesCategories {
+    text-align: center;
+    width: 100%;
+    font-size: 17px;
+  }
+
+  .select {
+    font-size: 2.5vh;
+    text-align: center;
+    width: 60vw;
+    border: 2px solid black;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-box-shadow: 0 5px 15px 1px #8f742c;
+    box-shadow: 0 5px 15px 1px #8f742c;
+    font-family: 'Reem Kufi', sans-serif;
+    border-radius: 9999px;
+    margin: 0.5vw;
+  }
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }

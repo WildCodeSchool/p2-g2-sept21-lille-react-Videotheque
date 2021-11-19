@@ -1,4 +1,4 @@
-@import "react-slideshow-image/dist/styles.css";
+@import 'react-slideshow-image/dist/styles.css';
 
 .slideContain {
   background: #1fe0;
@@ -23,22 +23,17 @@
 
 @media (min-width: 800px) {
   .popMovieImg {
-    width: 320px;
-    height: 500px;
+    width: 15.7%;
+    height: 27%;
     margin-bottom: 13vh;
   }
 
   .imgContain {
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 5vh;
   }
 }
-
-/* .imgContain:hover {
-  -ms-transform: scale(1.5);
-  transform: scale(1.5);
-} */
 
 .react-slideshow-wrapper.slide {
   width: 100%;

@@ -141,10 +141,13 @@ body {
 /* -----------------------------------EYE BLINKING MOBILE VERSION-------------------------- */
 @media screen and (max-width: 600px) {
   .card-container {
-    position: relative;
+    position: fixed;
     margin-top: 3%;
     margin-left: 55%;
     transition: 0.3s ease-in-out;
+    z-index: 1000;
+    bottom: 11vh;
+    left: 3vw;
   }
 
   .ball {

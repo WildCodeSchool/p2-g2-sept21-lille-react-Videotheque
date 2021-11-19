@@ -9,7 +9,7 @@
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 36px;
+  top: 28px;
 }
 
 .menu {
@@ -41,7 +41,7 @@
 }
 
 .bm-burger-bars {
-  background: #373a47;
+  background: black;
   border-radius: 9999px;
 }
 
@@ -81,6 +81,10 @@
 
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
+}
+
+.menu li {
+  margin-top: 2vh;
 }
 
 @media only screen and (min-width: 600px) {

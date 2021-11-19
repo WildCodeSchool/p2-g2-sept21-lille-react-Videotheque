@@ -2,7 +2,7 @@
   display: inline-block;
   text-align: center;
   height: 30px;
-  width: 60vw;
+  width: 45vw;
   opacity: 70%;
   border-radius: 10px;
   box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
@@ -36,9 +36,9 @@
 
 @media screen and (max-width: 600px) {
   .searchBar {
-    width: 40vw;
-    height: 8vh;
-    font-size: 18px;
+    width: 70vw;
+    height: 5vh;
+    font-size: 2vh;
   }
 
   .results {
