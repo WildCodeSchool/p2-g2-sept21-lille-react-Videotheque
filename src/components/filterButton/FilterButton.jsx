@@ -4,7 +4,7 @@ import './FilterButton.css';
 function FilterButton() {
   return (
     <Link
-      to="Categories/"
+      to="/Categories"
       style={{ color: 'inherit', textDecoration: 'inherit' }}
       className="filterButtonBlock"
     >
