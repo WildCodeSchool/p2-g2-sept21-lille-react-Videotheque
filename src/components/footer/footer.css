@@ -1,21 +1,141 @@
-.footer {
+.footer .links {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  align-items: center;
-  margin-top: 1vw;
-  padding: auto;
-  background-color: rgba(196, 196, 196, 0.2);
-  color: white;
-  position: fixed;
+  text-align: center;
+  position: relative;
   bottom: 0;
-  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.39);
+  color: white;
+  height: auto;
   width: 100vw;
-  font-size: 4vw;
-  text-shadow: 1px 1px 1px wheat;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-@media screen and (min-width: 600px) {
-  .footer {
-    font-size: 2vw;
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .toolTip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background-color: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .toolTip::before {
+  position: absolute;
+  content: '';
+  height: 8px;
+  width: 8px;
+  background-color: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .toolTip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .toolTip {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .toolTip,
+.wrapper .facebook:hover .toolTip::before {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.wrapper .website:hover,
+.wrapper .website:hover .toolTip,
+.wrapper .website:hover .toolTip::before {
+  background-color: #f76c6c;
+  color: #fff;
+}
+
+.wrapper .credits:hover,
+.wrapper .credits:hover .toolTip,
+.wrapper .credits:hover .toolTip::before {
+  background-color: rgb(30, 213, 169);
+  color: #fff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .toolTip,
+.wrapper .github:hover .toolTip::before {
+  background-color: #333;
+  color: #fff;
+}
+
+.legalMentions {
+  margin: bottom -100px;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 600px) {
+  .footer .links {
+    flex-direction: column;
+    height: auto;
+    width: auto;
+    font-size: 10px;
+    padding-top: 1vw;
+    padding-bottom: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .wrapper .icon {
+    position: relative;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    font-size: 12px;
+  }
+
+  .legalMentions {
+    font-size: 10px;
   }
 }
