@@ -1,3 +1,22 @@
+.noMovies {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.noMoviesGif {
+  height: 300px;
+  width: auto;
+  margin-bottom: 4%;
+}
+
+.noMoviesTitle {
+  font-size: 35px;
+  font-style: italic;
+}
+
 .watchContainer {
   margin-top: 3%;
   display: flex;
@@ -13,7 +32,7 @@
 
 .movieCard {
   margin-bottom: 20px;
-  width: 79%;
+  width: 75%;
   height: 300px;
   display: flex;
   justify-content: space-around;
@@ -23,7 +42,7 @@
 
 .watchCard {
   position: relative;
-  width: 50vw;
+  width: 55vw;
   height: 300px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.56) 0 22px 70px 4px;
@@ -50,7 +69,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 50vw;
+  width: 55vw;
   height: 300px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 1%, rgba(222, 222, 222, 0.11106449415703779) 57%, rgba(255, 255, 255, 0) 100%);
 }
@@ -65,9 +84,9 @@
 }
 
 .ticketAndRemove {
-  margin-bottom: 30px;
-  width: 35%;
-  height: 100%;
+  margin-bottom: 15px;
+  width: 300px;
+  height: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -121,7 +140,30 @@
   color: white;
 }
 
+.providers img {
+  margin: 17px 18px 0 0;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.rightPart {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 @media screen and (max-width: 768px) {
+  .noMoviesTitle {
+    font-size: 23px;
+    font-style: italic;
+  }
+
+  .noMovies {
+    height: 70vh;
+  }
+
   .movieCard {
     width: 90%;
     display: flex;

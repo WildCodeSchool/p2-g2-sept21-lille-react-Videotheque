@@ -41,21 +41,7 @@ export default function Watchlist() {
                   />
                 </Link>
               </section>
-
-              <div className="ticketAndRemove">
-                <div className="openAndClosedTicket">
-                  <WatchCard />
-                </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    deleteFromWatchlist(movie.Id);
-                  }}
-                  className="buttonRemove"
-                >
-                  <span className="buttonText">Remove!</span>
-                </button>
-
+              <section className="rightPart">
                 <div className="providers">
                   {movie.Provider1 && (
                     <img
@@ -72,13 +58,40 @@ export default function Watchlist() {
                     />
                   )}
                 </div>
-              </div>
+
+                <div className="ticketAndRemove">
+                  <div className="openAndClosedTicket">
+                    <WatchCard />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      deleteFromWatchlist(movie.Id);
+                    }}
+                    className="buttonRemove"
+                  >
+                    <span className="buttonText">Remove!</span>
+                  </button>
+                </div>
+              </section>
             </li>
           </ul>
         );
       })}
 
-      {!watchlist.length && <p className="noMovies">No movies added!</p>}
+      {!watchlist.length && (
+        <div className="noMovies">
+          <img
+            className="noMoviesGif"
+            src="https://c.tenor.com/5aE5T7edBz4AAAAC/the-simpsons-homer-simpson.gif"
+            alt="GIF No movies"
+          />
+          <p className="noMoviesTitle">
+            No movies added <br />
+            ... Add some!
+          </p>
+        </div>
+      )}
     </div>
   );
 }
