@@ -36,9 +36,9 @@
 
 @media screen and (max-width: 600px) {
   .searchBar {
-    width: 50vw;
-    height: 8vh;
-    font-size: 18px;
+    width: 70vw;
+    height: 5vh;
+    font-size: 2vh;
   }
 
   .results {
