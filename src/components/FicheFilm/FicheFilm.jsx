@@ -184,26 +184,28 @@ export default function FicheFilm() {
         <img className="poster" src={poster} alt="trailer" />
 
         <div className="directorTimeDate">
-          {typeof directors !== 'undefined' ? (
-            <>
-              {directors
-                .filter(
-                  (job) =>
-                    job.job === 'Director' && job.department === 'Directing'
-                )
-                .map((dir) => {
-                  return <p> Director : {dir.name}</p>;
-                })}
-            </>
-          ) : (
-            <p>Director : unknown</p>
-          )}
-          <p>{Runtime()}</p>
-          <p>({releaseDates})</p>
+          <div className="director">
+            {typeof directors !== 'undefined' ? (
+              <>
+                {directors
+                  .filter(
+                    (job) =>
+                      job.job === 'Director' && job.department === 'Directing'
+                  )
+                  .map((dir) => {
+                    return <p> Director : {dir.name}</p>;
+                  })}
+              </>
+            ) : (
+              <p>Director : unknown</p>
+            )}
+            <p>{Runtime()}</p>
+            <p>({releaseDates})</p>
+          </div>
           <div className="provider">
             {flatrate ? (
               <>
-                <h3>Streaming</h3>
+                <h3>Streaming :</h3>
                 <div>
                   {providersFlatrates.FR.flatrate.map((providerFlatrate) => {
                     return (
@@ -230,28 +232,34 @@ export default function FicheFilm() {
               return <p>{genre.name}</p>;
             })}
           </div>
-          <p className="overview">{overview}</p>
+          <div className="overview">
+            <p>{overview}</p>
+          </div>
+
+          <div className="buttons">
+            {watchlist.find((movie) => movie.Id === id) ? (
+              <button
+                type="button"
+                onClick={deleteToWatch}
+                className="buttonAdd"
+              >
+                <span className="buttonText+or-">Removie!</span>
+              </button>
+            ) : (
+              <button type="button" onClick={addToWatch} className="buttonAdd">
+                <span className="buttonText+or-">Add to Watch!</span>
+              </button>
+            )}
+
+            {typeof trailers !== 'undefined' && (
+              <a href={`https://www.youtube.com/embed/${trailers.key}`}>
+                <div className="buttonTrailer">
+                  <div className="playTriangle" />
+                </div>
+              </a>
+            )}
+          </div>
         </div>
-      </div>
-
-      <div className="buttons">
-        {watchlist.find((movie) => movie.Id === id) ? (
-          <button type="button" onClick={deleteToWatch} className="buttonAdd">
-            <span className="buttonText+or-">Removie!</span>
-          </button>
-        ) : (
-          <button type="button" onClick={addToWatch} className="buttonAdd">
-            <span className="buttonText+or-">Add to Watch!</span>
-          </button>
-        )}
-
-        {typeof trailers !== 'undefined' && (
-          <a href={`https://www.youtube.com/embed/${trailers.key}`}>
-            <div className="buttonTrailer">
-              <div className="playTriangle" />
-            </div>
-          </a>
-        )}
       </div>
 
       <div className="actors">
