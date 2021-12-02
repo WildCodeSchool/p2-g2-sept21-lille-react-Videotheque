@@ -82,12 +82,11 @@ img {
 .genres {
   display: flex;
   flex-grow: row wrap;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: space-evently;
   margin-bottom: 5vh;
   background-color: rgba(255, 255, 240, 0.247);
-  padding-right: 10px;
-  height: 7vh;
+  padding: 1vw;
+  height: 10vh;
   border-radius: 10px;
 }
 

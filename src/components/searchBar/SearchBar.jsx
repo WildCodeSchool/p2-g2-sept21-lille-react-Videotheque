@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import axios from 'axios';
 import React, { useState } from 'react';
 import Eye from '../eye/Eye';
 import FilterButton from '../filterButton/FilterButton';
@@ -11,9 +11,10 @@ const SearchBar = () => {
 
   const onChange = (e) => {
     setQuery(e.target.value);
-    Axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=599ded6f0fc3bcaee1882e83ae0d438a&language=en-US&page=1&include_adult=false&query=${e.target.value}`
-    )
+    axios
+      .get(
+        `https://api.themoviedb.org/3/search/movie?api_key=599ded6f0fc3bcaee1882e83ae0d438a&language=en-US&page=1&include_adult=false&query=${e.target.value}`
+      )
       .then(({ data }) => {
         setResults(data.results);
       })
