@@ -33,7 +33,7 @@ export default function FicheFilm() {
         `https://api.themoviedb.org/3/movie/${id}?api_key=599ded6f0fc3bcaee1882e83ae0d438a`
       )
       .then(({ data }) => {
-        setTitle(data.original_title);
+        setTitle(data.title);
         setVoteAverage(data.vote_average);
         setNumberVote(data.vote_count);
         setPoster(data.poster_path);
